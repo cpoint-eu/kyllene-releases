@@ -21,10 +21,11 @@
   <img src="media/hero.gif" width="900" alt="Kyllene: an answer streams in with a table and a diagram">
 </p>
 
-<p align="center">
-  <a href="media/kyllene-tour.mp4"><img src="media/tour-poster.webp" width="560" alt="Watch the 3-minute tour"></a><br>
-  <sub>▶ <a href="media/kyllene-tour.mp4">Watch the 3-minute tour</a> (all data in the video and screenshots is made up)</sub>
-</p>
+### ▶ The 3-minute tour
+
+https://github.com/user-attachments/assets/548e8352-62e9-4b43-9666-2d06aa878c99
+
+<sub>All data in the video and the screenshots is made up.</sub>
 
 ---
 

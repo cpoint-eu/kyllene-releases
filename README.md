@@ -19,6 +19,7 @@
 
 <p align="center">
   <a href="#get-kyllene"><b>Install</b></a> ·
+  <a href="#-let-your-ai-install-it"><b>🤖 Let your AI install it</b></a> ·
   <a href="docs/README.md"><b>Documentation</b></a> ·
   <a href="docs/widgets.md"><b>Build your own widget</b></a> ·
   <a href="https://github.com/cpoint-eu/kyllene-releases/releases"><b>Release notes</b></a> ·
@@ -182,6 +183,76 @@ Every release is signed and tied to the Hermes versions it was tested with, so a
 cannot work with.
 
 Coming next: a one-line installer with a menu entry, and Hermes installed from inside the app.
+
+### 🤖 Let your AI install it
+
+Already using Hermes, Claude Code, Codex or another coding agent? Paste this to it:
+
+```text
+Install Kyllene for me by following the "Install guide for AI agents" in
+https://github.com/cpoint-eu/kyllene-releases/blob/main/README.md
+```
+
+<details>
+<summary><b>Install guide for AI agents</b> (exact steps; humans can follow them too)</summary>
+
+You are installing Kyllene, a desktop app (AppImage) for Hermes Agent, for the user of this computer. Run the steps
+in order, check each result, and stop and tell the user when a check fails. Do not use `sudo` unless a step says so,
+and then ask the user first.
+
+1. **Check the platform.** `uname -sm` must print `Linux x86_64`. Otherwise stop: only Linux x86_64 is supported for
+   now. Tested on Manjaro; other modern distros are expected to work.
+2. **Check for Hermes Agent.** `command -v hermes || ls ~/.local/bin/hermes`
+   - Found: go on.
+   - Missing: install it without questions (no sudo, a few GB in `~/.hermes`, needs `git` and `curl`;
+     `--skip-setup` makes the installer non-interactive):
+
+     ```bash
+     curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --skip-setup
+     ```
+
+     Then check `~/.local/bin/hermes --version`. The installer adds `~/.local/bin` to PATH only for new shells.
+3. **Download the latest Kyllene AppImage** into `~/.local/bin/Kyllene.AppImage`:
+
+   ```bash
+   mkdir -p ~/.local/bin
+   URL=$(curl -fsSL https://api.github.com/repos/cpoint-eu/kyllene-releases/releases/latest \
+     | grep -o '"browser_download_url": *"[^"]*_amd64\.AppImage"' | cut -d'"' -f4)
+   test -n "$URL" || echo "No Kyllene release published yet"
+   curl -fL --progress-bar -o ~/.local/bin/Kyllene.AppImage "$URL"
+   chmod +x ~/.local/bin/Kyllene.AppImage
+   ```
+
+   If the GitHub API answers 404 or `URL` is empty, no release is out yet: stop and tell the user.
+4. **Check FUSE 2** (AppImages need it): `ldconfig -p | grep -q 'libfuse.so.2' && echo ok`. When it is missing, ask
+   the user to install it: `sudo pacman -S fuse2` (Manjaro, Arch); on Debian/Ubuntu `sudo apt install libfuse2`
+   (Ubuntu 24.04+: `libfuse2t64`); on Fedora `sudo dnf install fuse-libs`.
+5. **Add a menu entry** so the user can start Kyllene from the app menu:
+
+   ```bash
+   mkdir -p ~/.local/share/applications ~/.local/share/icons
+   curl -fsSL -o ~/.local/share/icons/kyllene.png \
+     https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/media/icon.png
+   printf '%s\n' '[Desktop Entry]' 'Type=Application' 'Name=Kyllene' \
+     'Comment=Desktop workspace for Hermes Agent' "Exec=$HOME/.local/bin/Kyllene.AppImage" \
+     "Icon=$HOME/.local/share/icons/kyllene.png" 'Terminal=false' 'Categories=Development;' \
+     'StartupNotify=true' 'StartupWMClass=kyllene' > ~/.local/share/applications/kyllene.desktop
+   update-desktop-database ~/.local/share/applications 2>/dev/null || true
+   ```
+
+6. **Start it:** `gtk-launch kyllene` (or run `~/.local/bin/Kyllene.AppImage` from the user's desktop session).
+   A window titled Kyllene opens and connects to Hermes.
+7. **Tell the user what is left for them:**
+   - When Hermes has no model yet (fresh install), sign in to a model provider in **Kyllene › Settings › Models**
+     (or run `hermes setup` in a terminal). This needs the user's own account or API key: never enter keys or
+     passwords for them.
+   - Kyllene updates itself: it offers *Update and restart* when a new version is out.
+
+**Uninstall:** `rm ~/.local/bin/Kyllene.AppImage ~/.local/share/applications/kyllene.desktop
+~/.local/share/icons/kyllene.png`. The user's data in `~/.local/share/kyllene` and Hermes in
+`~/.hermes` stay; delete them only when the user asks.
+
+</details>
 
 ## Documentation
 

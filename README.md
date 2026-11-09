@@ -14,6 +14,7 @@
   <img alt="Platform" src="https://img.shields.io/badge/platform-Linux%20x86__64-1f2a44?style=flat-square">
   <img alt="Status" src="https://img.shields.io/badge/status-beta-f5a524?style=flat-square">
   <img alt="Languages" src="https://img.shields.io/badge/UI-English%20%7C%20Czech-1f2a44?style=flat-square">
+  <a href="https://ko-fi.com/cpointeu"><img alt="Support on Ko-fi" src="https://img.shields.io/badge/support-Ko--fi-ff5e5b?style=flat-square&logo=ko-fi&logoColor=white"></a>
 </p>
 
 <p align="center">
@@ -173,6 +174,10 @@ same Hermes, so you can use either, or both.
 ## Feedback and support
 
 - Found a bug or have an idea? [Open an issue](https://github.com/cpoint-eu/kyllene-releases/issues).
-- Like Kyllene? You can [buy me a coffee on Ko-fi](https://ko-fi.com/cpointeu). ☕
+- Kyllene is free and built in spare time. If it saves you time, you can support its development:
+
+<p>
+  <a href="https://ko-fi.com/cpointeu"><img alt="Support Kyllene on Ko-fi" src="https://img.shields.io/badge/Buy%20me%20a%20coffee-Ko--fi-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+</p>
 
 <sub>Kyllene is an independent project and is not affiliated with Nous Research. Hermes Agent is a project of Nous Research.</sub>

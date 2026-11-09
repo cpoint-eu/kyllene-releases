@@ -18,6 +18,14 @@
 </p>
 
 <p align="center">
+  <a href="#get-kyllene"><b>Install</b></a> ·
+  <a href="docs/README.md"><b>Documentation</b></a> ·
+  <a href="docs/widgets.md"><b>Build your own widget</b></a> ·
+  <a href="https://github.com/cpoint-eu/kyllene-releases/releases"><b>Release notes</b></a> ·
+  <a href="https://github.com/cpoint-eu/kyllene-releases/issues"><b>Report a bug</b></a>
+</p>
+
+<p align="center">
   <img src="media/hero.gif" width="900" alt="Kyllene: an answer streams in with a table and a diagram">
 </p>
 
@@ -173,8 +181,13 @@ Kyllene **updates itself**: when a new version is out it shows what is new and o
 Every release is signed and tied to the Hermes versions it was tested with, so an update never lands on a Hermes it
 cannot work with.
 
-Coming next: a one-line installer with a menu entry, and Hermes installed from inside the app. The full guide
-will live at **[cpoint-eu.github.io/kyllene](https://cpoint-eu.github.io/kyllene/)**.
+Coming next: a one-line installer with a menu entry, and Hermes installed from inside the app.
+
+## Documentation
+
+- **[Documentation](docs/README.md)**: all guides and troubleshooting.
+- **[Build your own widget](docs/widgets.md)**: put anything on screen, with a ready-to-run example.
+- A web version of the guides will follow at [cpoint-eu.github.io/kyllene](https://cpoint-eu.github.io/kyllene/).
 
 ## FAQ
 

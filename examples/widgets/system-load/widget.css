@@ -1,0 +1,5 @@
+/* Prefix every class with .xw-<id>- : widget CSS is global. Use the app's variables so light/dark mode works. */
+.xw-sysload { display: flex; flex-direction: column; gap: 10px; }
+.xw-sysload-head { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; margin-bottom: 4px; }
+.xw-sysload-bar { height: 6px; border-radius: var(--r-sm); background: var(--hover); overflow: hidden; }
+.xw-sysload-bar i { display: block; height: 100%; border-radius: var(--r-sm); }

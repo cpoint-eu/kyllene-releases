@@ -104,7 +104,7 @@ wherever you want: the side panel, the Overview, the top or bottom bar, or the m
 - **Build your own** for anything else: your server's health, a sales number, an RSS feed, a home sensor, your team's
   tickets. A widget is just a folder with a small manifest, a view in plain JavaScript and an optional data script in
   any language, no build step. Easiest of all: describe what you want and **let Hermes or Claude Code write it for
-  you**.
+  you**. How: **[docs/widgets.md](docs/widgets.md)** with a ready-to-run example.
 - Widgets can do real work, not just show numbers: buttons that run actions (always after your OK), AI drafts you
   confirm, a Hermes conversation or a coding agent started from a click, warnings to the notification bell.
 - Change a built-in widget by making your own copy of it.

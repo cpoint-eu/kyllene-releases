@@ -1,0 +1,36 @@
+{
+  "id": "system-load",
+  "version": "1.0.0",
+  "author": "Kyllene example",
+  "color": "accent",
+  "permissions": ["files", "run"],
+  "name": { "en": "System load", "cs": "Zátěž systému" },
+  "description": {
+    "en": "CPU load, memory and disk of this computer. An example widget: data script + card + states + a setting.",
+    "cs": "Zátěž CPU, paměť a disk tohoto počítače. Ukázkový widget: datový skript + karta + stavy + nastavení."
+  },
+  "category": { "en": "Personal", "cs": "Osobní" },
+  "icon": "cpu",
+  "type": "sidebar-right",
+  "notify": true,
+  "script": { "run": ["python3", "fetch.py"], "every": 60, "timeout": 10 },
+  "settings": [
+    {
+      "key": "warnAt",
+      "type": "number",
+      "label": { "en": "Warn at (% used)", "cs": "Varovat od (% využití)" },
+      "help": { "en": "Memory or disk above this turns the widget orange and sends a notice.", "cs": "Paměť nebo disk nad touto hodnotou zbarví widget oranžově a pošle upozornění." },
+      "min": 50,
+      "max": 99,
+      "default": 90
+    },
+    {
+      "key": "disk",
+      "type": "text",
+      "label": { "en": "Disk to watch", "cs": "Sledovaný disk" },
+      "help": { "en": "A folder on the disk, e.g. / or /home.", "cs": "Složka na disku, např. / nebo /home." },
+      "default": "/",
+      "device": true
+    }
+  ]
+}

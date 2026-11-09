@@ -36,7 +36,8 @@ you meet it in a terminal or a chat box, one conversation at a time.
 
 Kyllene turns Hermes into a place where your work lives. Every project gets a home with its conversations, files,
 tasklists, a Kanban board and git. You can run five conversations side by side, hand a task to an agent and come
-back when it is done, see what each day cost, and manage all of Hermes without touching a config file.
+back when it is done, see what each day cost, and manage all of Hermes without touching a config file. And when
+something is missing, you add it: widgets let you put anything on screen, and Hermes can write them for you.
 
 It is the same Hermes underneath. Kyllene talks to your existing install, so sessions, memory, skills and profiles
 are shared: start something in Kyllene and continue it in the terminal, or the other way round. No lock-in, no
@@ -58,6 +59,7 @@ account, no cloud of its own.
 | **Managing Hermes** | Editing YAML, CLI commands | Skills, MCP servers, plugins, cron, profiles, keys, memory, logs and gateways in one screen |
 | **Costs and usage** | Numbers per session | Overview of tokens and costs by model, agent and project; subscription limits with a pace line; a timeline of the whole day |
 | **Several computers** | Each one on its own | Projects, tasklists, settings and widgets sync through GitHub or your cloud drive |
+| **Your own additions** | Skills and plugins for the agent | Plus widgets for the app: anything you want on screen, written by you or by Hermes itself |
 
 ## Features
 
@@ -92,11 +94,28 @@ account, no cloud of its own.
 - **Claude Code and Codex** run inside the app with approvals, slash commands and their history.
 - Delegated sub-agents and background processes are visible in the conversation while they run.
 
-### Overview and widgets
+### Widgets: make it do what you need
+
+Kyllene is meant to be shaped to your work, not the other way round. Widgets are small cards and windows you put
+wherever you want: the side panel, the Overview, the top or bottom bar, or the main area.
+
+- **Ready to use**: Claude Code, Codex and OpenRouter limits with a pace line (will it last until the reset?),
+  weather with rain alerts, Google Calendar, Gmail and Google Tasks (several accounts), GitLab merge requests.
+- **Build your own** for anything else: your server's health, a sales number, an RSS feed, a home sensor, your team's
+  tickets. A widget is just a folder with a small manifest, a view in plain JavaScript and an optional data script in
+  any language, no build step. Easiest of all: describe what you want and **let Hermes or Claude Code write it for
+  you**.
+- Widgets can do real work, not just show numbers: buttons that run actions (always after your OK), AI drafts you
+  confirm, a Hermes conversation or a coding agent started from a click, warnings to the notification bell.
+- Change a built-in widget by making your own copy of it.
+- Data can also come from an agent over the **A2A** protocol, so a widget can show what your other agents know.
+- With sync on, your widgets and their layout follow you to every computer; code that arrives from another device
+  runs only after you approve it there.
+
+### Overview
 
 - **Overview**: tokens, costs (at API prices), usage by model, agent and project, running work, and a **Today** page with what waits for you.
 - **Timeline**: what Hermes, your agents, cron jobs and Kanban runs did all day, with the cost of each entry.
-- **Widgets**: Claude Code, Codex and OpenRouter limits with a pace line (will it last until the reset?), weather, Google Calendar, Gmail and Google Tasks. Write your own widgets with a small script.
 
 ### Manage Hermes
 

@@ -2,7 +2,7 @@
 
 | Guide | What it covers |
 |---|---|
-| [Install and update](../README.md#get-kyllene) | Requirements, installing Hermes and the AppImage, automatic updates |
+| [Install and update](../README.md#get-kyllene) | Requirements, the one-line installer, automatic updates, uninstall |
 | [Build your own widget](widgets.md) | Cards and windows with your own data: manifest, data script, view, settings, actions, notices, a ready-to-run example |
 | [Troubleshooting](#troubleshooting) | The most common problems on the first start |
 
@@ -14,7 +14,8 @@ version at [cpoint-eu.github.io/kyllene](https://cpoint-eu.github.io/kyllene/). 
 
 | Problem | What to do |
 |---|---|
-| The AppImage does not start: *"dlopen(): error loading libfuse.so.2"* | Install FUSE 2: `sudo pacman -S fuse2` (Manjaro, Arch). |
+| The AppImage does not start: *"No suitable fusermount binary found on the $PATH"* | Install FUSE: `sudo pacman -S fuse3` (Manjaro, Arch), then start Kyllene again. The installer checks this for you. |
+| Kyllene is not in the app menu | Run the [installer](../install.sh) again; it adds the menu entry (`~/.local/share/applications/kyllene.desktop`). |
 | The window stays empty or white | Start it once with `WEBKIT_DISABLE_COMPOSITING_MODE=1 ./Kyllene_*.AppImage` and [report your GPU and desktop](https://github.com/cpoint-eu/kyllene-releases/issues). |
 | *"Hermes could not be started"* | Check that Hermes works in a terminal (`hermes`), then restart Kyllene. |
 | Conversations start but the model does not answer | Hermes has no model yet: set one up with `hermes setup` (or in Kyllene › Settings › Models). |

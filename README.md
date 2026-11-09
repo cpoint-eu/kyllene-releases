@@ -160,29 +160,38 @@ wherever you want: the side panel, the Overview, the top or bottom bar, or the m
 
 ## Get Kyllene
 
-**Requirements:** Linux x86_64 and [Hermes Agent](https://hermes-agent.nousresearch.com/). The first beta is
-tested on Manjaro (GNOME, Wayland); the same AppImage is expected to run on other modern distros.
+**Requirements:** Linux x86_64. The first beta is tested on Manjaro (GNOME, Wayland); the same AppImage is expected
+to run on other modern distros, and the installer only warns there.
 
-1. Install Hermes Agent, if you do not have it yet:
+Install it with one line (no `sudo`, everything goes into your home folder):
 
-   ```bash
-   curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-   ```
+```bash
+curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash
+```
 
-2. Download `Kyllene_<version>_amd64.AppImage` from the
-   [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest).
-3. Make it executable and start it:
-
-   ```bash
-   chmod +x Kyllene_*_amd64.AppImage
-   ./Kyllene_*_amd64.AppImage
-   ```
+The [installer](install.sh) downloads the latest AppImage to `~/.local/bin/Kyllene.AppImage`, adds Kyllene with its
+icon to your app menu and checks that AppImages can run (FUSE; Manjaro ships it). Then start **Kyllene** from the
+app menu. [Hermes Agent](https://hermes-agent.nousresearch.com/) is not needed beforehand: when it is missing,
+Kyllene offers to install it on the first start (about 2.7 GB, a few minutes) and then lets you sign in to a model.
 
 Kyllene **updates itself**: when a new version is out it shows what is new and offers *Update and restart*.
 Every release is signed and tied to the Hermes versions it was tested with, so an update never lands on a Hermes it
 cannot work with.
 
-Coming next: a one-line installer with a menu entry, and Hermes installed from inside the app.
+<details>
+<summary>Other options: a specific version, manual download, uninstall</summary>
+
+- A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta`
+- An AppImage you already downloaded: `bash install.sh --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage`
+- Without the installer: download `Kyllene_<version>_amd64.AppImage` from the
+  [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest), `chmod +x` it and run it.
+- Uninstall (your data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay):
+
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --uninstall
+  ```
+
+</details>
 
 ### 🤖 Let your AI install it
 
@@ -212,45 +221,30 @@ and then ask the user first.
      ```
 
      Then check `~/.local/bin/hermes --version`. The installer adds `~/.local/bin` to PATH only for new shells.
-3. **Download the latest Kyllene AppImage** into `~/.local/bin/Kyllene.AppImage`:
+3. **Install Kyllene** with its installer (downloads the latest AppImage to `~/.local/bin/Kyllene.AppImage`, adds the
+   menu entry and icon, checks FUSE; no sudo):
 
    ```bash
-   mkdir -p ~/.local/bin
-   URL=$(curl -fsSL https://api.github.com/repos/cpoint-eu/kyllene-releases/releases/latest \
-     | grep -o '"browser_download_url": *"[^"]*_amd64\.AppImage"' | cut -d'"' -f4)
-   test -n "$URL" || echo "No Kyllene release published yet"
-   curl -fL --progress-bar -o ~/.local/bin/Kyllene.AppImage "$URL"
-   chmod +x ~/.local/bin/Kyllene.AppImage
+   curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash
    ```
 
-   If the GitHub API answers 404 or `URL` is empty, no release is out yet: stop and tell the user.
-4. **Check FUSE 2** (AppImages need it): `ldconfig -p | grep -q 'libfuse.so.2' && echo ok`. When it is missing, ask
-   the user to install it: `sudo pacman -S fuse2` (Manjaro, Arch); on Debian/Ubuntu `sudo apt install libfuse2`
-   (Ubuntu 24.04+: `libfuse2t64`); on Fedora `sudo dnf install fuse-libs`.
-5. **Add a menu entry** so the user can start Kyllene from the app menu:
-
-   ```bash
-   mkdir -p ~/.local/share/applications ~/.local/share/icons
-   curl -fsSL -o ~/.local/share/icons/kyllene.png \
-     https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/media/icon.png
-   printf '%s\n' '[Desktop Entry]' 'Type=Application' 'Name=Kyllene' \
-     'Comment=Desktop workspace for Hermes Agent' "Exec=$HOME/.local/bin/Kyllene.AppImage" \
-     "Icon=$HOME/.local/share/icons/kyllene.png" 'Terminal=false' 'Categories=Development;' \
-     'StartupNotify=true' 'StartupWMClass=kyllene' > ~/.local/share/applications/kyllene.desktop
-   update-desktop-database ~/.local/share/applications 2>/dev/null || true
-   ```
-
-6. **Start it:** `gtk-launch kyllene` (or run `~/.local/bin/Kyllene.AppImage` from the user's desktop session).
+   It must end with `Done.` and exit code 0. When it stops instead, it says why:
+   - *No Kyllene release is published yet*: stop and tell the user.
+   - *FUSE is missing*: ask the user to install it (`sudo pacman -S fuse3` on Manjaro/Arch; Debian/Ubuntu
+     `sudo apt install fuse3`; Fedora `sudo dnf install fuse3`), then run the installer again.
+   - *belongs to another Kyllene install*: the user already has Kyllene built from source; ask before re-running
+     with `bash -s -- --force`.
+   - On a distro other than Manjaro it only warns and installs anyway.
+4. **Start it:** `gtk-launch kyllene` (or run `~/.local/bin/Kyllene.AppImage` from the user's desktop session).
    A window titled Kyllene opens and connects to Hermes.
-7. **Tell the user what is left for them:**
+5. **Tell the user what is left for them:**
    - When Hermes has no model yet (fresh install), sign in to a model provider in **Kyllene › Settings › Models**
      (or run `hermes setup` in a terminal). This needs the user's own account or API key: never enter keys or
      passwords for them.
    - Kyllene updates itself: it offers *Update and restart* when a new version is out.
 
-**Uninstall:** `rm ~/.local/bin/Kyllene.AppImage ~/.local/share/applications/kyllene.desktop
-~/.local/share/icons/kyllene.png`. The user's data in `~/.local/share/kyllene` and Hermes in
-`~/.hermes` stay; delete them only when the user asks.
+**Uninstall:** `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --uninstall`.
+The user's data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay; delete them only when the user asks.
 
 </details>
 

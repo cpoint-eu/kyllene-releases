@@ -1,11 +1,13 @@
 # Kyllene documentation
 
 New here? Start with [Install and update](https://cpoint-eu.github.io/kyllene/#install), then [Settings](settings.md)
-and [Manage Hermes](hermes.md).
+and [Manage Hermes](hermes.md). Wondering what something is for, or whether Kyllene can do it? See
+[Everything in Kyllene](features.md).
 
 | Guide | What it covers |
 |---|---|
 | [Install and update](https://cpoint-eu.github.io/kyllene/#install) | Requirements, the one-line installer, automatic updates, uninstall (also [in Czech](https://cpoint-eu.github.io/kyllene/cs/#install)) |
+| [Everything in Kyllene](features.md) | A catalog of every feature by area: what it is for, where you find it (menu, shortcut, palette command) and the guide that explains it |
 | [Settings](settings.md) | Every Settings tab: what each option does, its default, and when to change it |
 | [Manage Hermes](hermes.md) | The Hermes window: skills and the hub, MCP servers and tool selection, plugins, cron jobs, profiles, models and providers, keys, memory, logs, system, config, hooks, channels, webhooks, statistics |
 | [Projects and tasklists](projects.md) | Projects, instructions and memory, files and outputs, the Git panel, focus mode, tasklists with AI |

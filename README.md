@@ -22,6 +22,7 @@
   <a href="#get-kyllene"><b>Install</b></a> ·
   <a href="#-let-your-ai-install-it"><b>🤖 Let your AI install it</b></a> ·
   <a href="docs/README.md"><b>Documentation</b></a> ·
+  <a href="docs/features.md"><b>Everything in Kyllene</b></a> ·
   <a href="docs/widgets.md"><b>Build your own widget</b></a> ·
   <a href="https://github.com/cpoint-eu/kyllene-releases/releases"><b>Release notes</b></a> ·
   <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml"><b>Report a bug</b></a>
@@ -72,6 +73,8 @@ account, no cloud of its own.
 | **Your own additions** | Skills and plugins for the agent | Plus widgets for the app: anything you want on screen, written by you or by Hermes itself |
 
 ## Features
+
+The highlights below; every feature with where to find it: **[Everything in Kyllene](docs/features.md)**.
 
 ### Conversations
 
@@ -256,6 +259,7 @@ The user's data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay; dele
   [setting](docs/settings.md), [managing Hermes](docs/hermes.md), [projects and tasklists](docs/projects.md),
   [Kanban](docs/kanban.md), [coding agents](docs/coding-agents.md), [sync](docs/sync.md), [voice](docs/voice.md),
   [quick capture](docs/quick-capture.md) and [shortcuts](docs/shortcuts.md).
+- **[Everything in Kyllene](docs/features.md)**: every feature by area, what it is for and where to find it.
 - **[Build your own widget](docs/widgets.md)**: put anything on screen, with a ready-to-run example.
 - **[Website](https://cpoint-eu.github.io/kyllene/)** ([česky](https://cpoint-eu.github.io/kyllene/cs/)): install, updates, uninstall and troubleshooting on one page.
 

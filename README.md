@@ -252,7 +252,10 @@ The user's data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay; dele
 
 ## Documentation
 
-- **[Documentation](docs/README.md)**: all guides and troubleshooting.
+- **[Documentation](docs/README.md)**: all guides and troubleshooting, among them every
+  [setting](docs/settings.md), [managing Hermes](docs/hermes.md), [projects and tasklists](docs/projects.md),
+  [Kanban](docs/kanban.md), [coding agents](docs/coding-agents.md), [sync](docs/sync.md), [voice](docs/voice.md),
+  [quick capture](docs/quick-capture.md) and [shortcuts](docs/shortcuts.md).
 - **[Build your own widget](docs/widgets.md)**: put anything on screen, with a ready-to-run example.
 - **[Website](https://cpoint-eu.github.io/kyllene/)** ([česky](https://cpoint-eu.github.io/kyllene/cs/)): install, updates, uninstall and troubleshooting on one page.
 

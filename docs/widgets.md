@@ -6,10 +6,10 @@ feed, your team's tickets, a home sensor. This guide shows how to make one.
 > **The quickest way:** let Hermes write it. In a Kyllene conversation, say something like
 >
 > *Read https://github.com/cpoint-eu/kyllene-releases/blob/main/docs/widgets.md and build me a Kyllene widget that
-> shows the status of my GitHub Actions runs. Put it in ~/.local/share/kyllene/widgets/ and publish it.*
+> shows the status of my GitHub Actions runs. Put it in ~/.local/share/kyllene/widgets/.*
 >
-> Hermes (or Claude Code) asks a few questions, writes the files and publishes the widget. Then pick it in the
-> **Widgets** menu.
+> Hermes (or Claude Code) asks a few questions and writes the files. Then press **Publish** at the widget in
+> **Settings › Widgets** and pick it in the **Widgets** menu.
 
 **Contents:** [How a widget works](#how-a-widget-works) · [Your first widget in 5 minutes](#your-first-widget-in-5-minutes) ·
 [Where widgets live](#where-widgets-live) · [Publishing](#publishing-a-widget) · [widget.json](#widgetjson) ·
@@ -50,16 +50,14 @@ your computer. It uses a data script, states, a folded row, a bar item, a settin
    cp -r examples/widgets/system-load ~/.local/share/kyllene/widgets/
    ```
 
-2. Publish it (this tells Kyllene the folder is complete and may run):
-
-   ```bash
-   python3 tools/publish_widget.py ~/.local/share/kyllene/widgets/system-load
-   ```
+2. Publish it (this tells Kyllene the folder is complete and may run): open **Settings › Widgets**. *System load*
+   is listed with „Not published yet“; press **Publish** next to it.
 
 3. In Kyllene open **Widgets** in the top bar. *System load* is in the *Personal* group; click it to put it on its
    place (the right column).
 
-Change something in `widget.js`, publish again, and the card updates.
+Change something in `widget.js` and publish again (**⋯ › Publish changes** on the card, or **Publish** in Settings ›
+Widgets), and the card updates.
 
 ## Where widgets live
 
@@ -74,15 +72,19 @@ Every widget's ⋯ menu has **Open widget folder**. Built-in widgets (Weather, C
 ## Publishing a widget
 
 Kyllene runs only a **published** version of a widget. Saving a file is not enough, so a half-written widget (or one
-still being copied) never runs. When all files are done:
+still being copied) never runs. When all files are done, press **Publish**:
 
-```bash
-python3 tools/publish_widget.py <widget folder>
-```
+- **Settings › Widgets**: a widget with edits that do not run yet is marked „unpublished changes“ and has a
+  **Publish** button,
+- **⋯ › Publish changes** on the widget's card or window,
+- the palette (Ctrl+K): **Publish widget: …**.
 
-It writes a `.widget-published` file with a fingerprint of the folder. Each edit needs a new publish; until then the
-last published version keeps running. [`tools/publish_widget.py`](../tools/publish_widget.py) needs only Python 3.
-Without a clone of this repository, download it once:
+Publishing writes a `.widget-published` file with a fingerprint of the folder. Each edit needs a new publish; until
+then the last published version keeps running.
+
+Scripts and agents can publish without the app: [`tools/publish_widget.py`](../tools/publish_widget.py) writes the
+same file and needs only Python 3 (Kyllene 0.0.1-beta has no Publish button yet, use this tool there). Without a clone
+of this repository, download it once:
 
 ```bash
 curl -fsSL -o ~/.local/bin/kyllene-publish-widget https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/tools/publish_widget.py
@@ -339,7 +341,7 @@ is global.
 | Problem | What to do |
 |---|---|
 | The widget is not in the Widgets menu | Settings › Widgets lists load errors (bad JSON, unknown `type`, missing widget.js). |
-| "Widget is not published" | Run `tools/publish_widget.py` on its folder after the last edit. |
+| "Not published yet" / "Widget is not published" | Press **Publish** at the widget in Settings › Widgets after the last edit. |
 | An edit does not show | Publish again; until then the last published version runs. |
 | Error state in the card | Run the script by hand with the same `KYLLENE_WIDGET_SETTINGS`; its last stderr line is the message. |
 | The card does not fold / is missing in the bar | Add `collapsed` / `bar` (script) or `useCollapsed` / `useBar` (widget.js). |

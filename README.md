@@ -18,6 +18,7 @@
 </p>
 
 <p align="center">
+  <a href="https://cpoint-eu.github.io/kyllene/"><b>Website</b></a> ·
   <a href="#get-kyllene"><b>Install</b></a> ·
   <a href="#-let-your-ai-install-it"><b>🤖 Let your AI install it</b></a> ·
   <a href="docs/README.md"><b>Documentation</b></a> ·
@@ -253,7 +254,7 @@ The user's data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay; dele
 
 - **[Documentation](docs/README.md)**: all guides and troubleshooting.
 - **[Build your own widget](docs/widgets.md)**: put anything on screen, with a ready-to-run example.
-- A web version of the guides will follow at [cpoint-eu.github.io/kyllene](https://cpoint-eu.github.io/kyllene/).
+- **[Website](https://cpoint-eu.github.io/kyllene/)** ([česky](https://cpoint-eu.github.io/kyllene/cs/)): install, updates, uninstall and troubleshooting on one page.
 
 ## FAQ
 

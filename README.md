@@ -172,7 +172,8 @@ curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/ins
 The [installer](install.sh) downloads the latest AppImage to `~/.local/bin/Kyllene.AppImage`, adds Kyllene with its
 icon to your app menu and checks that AppImages can run (FUSE; Manjaro ships it). Then start **Kyllene** from the
 app menu. [Hermes Agent](https://hermes-agent.nousresearch.com/) is not needed beforehand: when it is missing,
-Kyllene offers to install it on the first start (about 2.7 GB, a few minutes) and then lets you sign in to a model.
+Kyllene offers to install it on the first start (about 2.7 GB, a few minutes) and then lets you sign in to a model
+(**Connect a model**; the first provider you connect becomes the main model).
 
 Kyllene **updates itself**: when a new version is out it shows what is new and offers *Update and restart*.
 Every release is signed and tied to the Hermes versions it was tested with, so an update never lands on a Hermes it
@@ -238,9 +239,9 @@ and then ask the user first.
 4. **Start it:** `gtk-launch kyllene` (or run `~/.local/bin/Kyllene.AppImage` from the user's desktop session).
    A window titled Kyllene opens and connects to Hermes.
 5. **Tell the user what is left for them:**
-   - When Hermes has no model yet (fresh install), sign in to a model provider in **Kyllene › Settings › Models**
-     (or run `hermes setup` in a terminal). This needs the user's own account or API key: never enter keys or
-     passwords for them.
+   - When Hermes has no model yet (fresh install), Kyllene shows the bar *Hermes has no model connected.*: the user
+     clicks **Connect a model** and signs in to a provider (or adds an API key); the first connected provider also
+     becomes the main model. This needs the user's own account or API key: never enter keys or passwords for them.
    - Kyllene updates itself: it offers *Update and restart* when a new version is out.
 
 **Uninstall:** `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --uninstall`.

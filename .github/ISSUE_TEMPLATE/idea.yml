@@ -1,0 +1,31 @@
+name: Suggest an improvement
+description: An idea that would make Kyllene better
+title: "[Idea]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing an idea! One idea per issue makes it easier to discuss and track.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to do?
+      description: The situation or problem behind the idea — what is hard or missing today?
+      placeholder: "When I … I have to …"
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How could Kyllene help? A rough description is enough; screenshots or sketches are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
+      description: Workarounds you use now, similar features in other apps, links.
+    validations:
+      required: false

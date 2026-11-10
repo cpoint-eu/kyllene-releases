@@ -24,7 +24,7 @@
   <a href="docs/README.md"><b>Documentation</b></a> ·
   <a href="docs/widgets.md"><b>Build your own widget</b></a> ·
   <a href="https://github.com/cpoint-eu/kyllene-releases/releases"><b>Release notes</b></a> ·
-  <a href="https://github.com/cpoint-eu/kyllene-releases/issues"><b>Report a bug</b></a>
+  <a href="https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml"><b>Report a bug</b></a>
 </p>
 
 <p align="center">
@@ -273,7 +273,7 @@ same Hermes, so you can use either, or both.
 
 ## Feedback and support
 
-- Found a bug or have an idea? [Open an issue](https://github.com/cpoint-eu/kyllene-releases/issues).
+- Found a bug or have an idea? [Report a bug](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml) or [suggest an improvement](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=idea.yml) — or use **Help** in the app's top bar.
 - Kyllene is free and built in spare time. If it saves you time, you can support its development:
 
 <p>

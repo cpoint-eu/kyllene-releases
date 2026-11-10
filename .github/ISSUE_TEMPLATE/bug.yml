@@ -1,0 +1,62 @@
+name: Bug report
+description: Something in Kyllene does not work as it should
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this! Please check the [troubleshooting guide](https://cpoint-eu.github.io/kyllene/#troubleshooting) first, it covers the most common problems (FUSE, blank window, Hermes, dictation).
+        Never paste API keys, tokens or private conversations here — this repository is public.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what did Kyllene do instead?
+      placeholder: "I clicked … and expected … but …"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open …
+        2. Click …
+        3. See …
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Kyllene version
+      description: Help › About (Settings › About) shows it, e.g. 0.0.1-beta
+      placeholder: 0.0.1-beta
+    validations:
+      required: true
+  - type: input
+    id: hermes
+    attributes:
+      label: Hermes Agent version
+      description: Output of `hermes --version`, or Help › About
+      placeholder: v0.23.1
+    validations:
+      required: false
+  - type: input
+    id: system
+    attributes:
+      label: System
+      description: Distribution, desktop and graphics card
+      placeholder: Manjaro GNOME (Wayland), Intel Arc
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error text, crash log or screenshot
+      description: |
+        The exact error message helps most. After a crash Kyllene keeps a log in `~/.local/share/kyllene/crash-log.json`.
+        You can drop screenshots here.
+      render: text
+    validations:
+      required: false

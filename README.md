@@ -48,7 +48,8 @@ you meet it in a terminal or a chat box, one conversation at a time.
 Kyllene turns Hermes into a place where your work lives. Every project gets a home with its conversations, files,
 tasklists, a Kanban board and git. You can run five conversations side by side, hand a task to an agent and come
 back when it is done, see what each day cost, and manage all of Hermes without touching a config file. And when
-something is missing, you add it: widgets let you put anything on screen, and Hermes can write them for you.
+something is missing, you add it: widgets let you put anything on screen, and Hermes can write them for you. And a
+small animated pet in the corner tells you at a glance whether the agent is working, stuck or waiting for you.
 
 It is the same Hermes underneath. Kyllene talks to your existing install, so sessions, memory, skills and profiles
 are shared: start something in Kyllene and continue it in the terminal, or the other way round. No lock-in, no
@@ -71,6 +72,8 @@ account, no cloud of its own.
 | **Costs and usage** | Numbers per session | Overview of tokens and costs by model, agent and project; subscription limits with a pace line; a timeline of the whole day |
 | **Several computers** | Each one on its own | Projects, tasklists, settings and widgets sync through GitHub or your cloud drive |
 | **Your own additions** | Skills and plugins for the agent | Plus widgets for the app: anything you want on screen, written by you or by Hermes itself |
+| **The pet** | A pet in the TUI | The same pet with moods, comments in a speech bubble and a memory; talk to it by name, hatch your own with AI, pop it out onto the desktop |
+| **Getting started** | `hermes setup` | Kyllene offers to install Hermes, then a first-run guide checks it, connects a model, creates a project and gives a short tour of the window |
 
 ## Features
 
@@ -86,6 +89,14 @@ The highlights below; every feature with where to find it: **[Everything in Kyll
 - **Quick capture**: a global shortcut takes a screenshot, you add a question, the answer appears in a small window.
 - Attachments and pasted images, prompt templates, bookmarks, export, `/later` (continue at a set time or when a background job ends).
 - A conversation keeps running when you close the app; drafts and attachments survive restarts.
+
+### A pet that keeps an eye on the agent
+
+- An animated **pet** in the corner shows what the agent is doing: working, thinking, waiting for you, done or failed. One glance, no reading.
+- Pick one from the public **Petdex** gallery, or **hatch your own** with AI from a description (with your image provider; the cost is shown first). Repair single animations or draw its own animations for every mood.
+- It has a **mood** that follows how the work goes, **comments** in a speech bubble (free prepared lines or AI lines), a personality, and answers when you **talk to it by name**. Give it a memory and skills, or make it a full Hermes agent.
+- **Shift+click** pops it out onto the desktop: it tells you when an agent needs you, leaves a letter for answers that finished while you were away, and a click sends a message to your last conversation.
+- With sync on it follows you to your other computers. More: **[Pet](docs/pet.md)**.
 
 ### Models
 
@@ -177,7 +188,9 @@ The [installer](install.sh) downloads the latest AppImage to `~/.local/bin/Kylle
 icon to your app menu and checks that AppImages can run (FUSE; Manjaro ships it). Then start **Kyllene** from the
 app menu. [Hermes Agent](https://hermes-agent.nousresearch.com/) is not needed beforehand: when it is missing,
 Kyllene offers to install it on the first start (about 2.7 GB, a few minutes) and then lets you sign in to a model
-(**Connect a model**; the first provider you connect becomes the main model).
+(**Connect a model**; the first provider you connect becomes the main model). A **first-run guide** walks you
+through it: it checks Hermes, connects a model, creates your first project and ends with a short tour of the window
+(Help › *First-run guide* opens it again).
 
 Kyllene **updates itself**: when a new version is out it shows what is new and offers *Update and restart*.
 Every release is signed and tied to the Hermes versions it was tested with, so an update never lands on a Hermes it
@@ -186,7 +199,7 @@ cannot work with.
 <details>
 <summary>Other options: a specific version, manual download, uninstall</summary>
 
-- A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.1-beta`
+- A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.2-beta`
 - An AppImage you already downloaded: `bash install.sh --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage`
 - Without the installer: download `Kyllene_<version>_amd64.AppImage` from the
   [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest), `chmod +x` it and run it.
@@ -258,7 +271,7 @@ The user's data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay; dele
 - **[Documentation](docs/README.md)**: all guides and troubleshooting, among them every
   [setting](docs/settings.md), [managing Hermes](docs/hermes.md), [projects and tasklists](docs/projects.md),
   [Kanban](docs/kanban.md), [coding agents](docs/coding-agents.md), [sync](docs/sync.md), [voice](docs/voice.md),
-  [quick capture](docs/quick-capture.md) and [shortcuts](docs/shortcuts.md).
+  [quick capture](docs/quick-capture.md), the [pet](docs/pet.md) and [shortcuts](docs/shortcuts.md).
 - **[Everything in Kyllene](docs/features.md)**: every feature by area, what it is for and where to find it.
 - **[Build your own widget](docs/widgets.md)**: put anything on screen, with a ready-to-run example.
 - **[Website](https://cpoint-eu.github.io/kyllene/)** ([česky](https://cpoint-eu.github.io/kyllene/cs/)): install, updates, uninstall and troubleshooting on one page.

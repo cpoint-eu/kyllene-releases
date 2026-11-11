@@ -168,7 +168,9 @@ Hermes' logs: the file (`agent.log`, gateway…), minimum level, one part of Her
   `hermes doctor` (config, keys, dependencies, services).
 - **Gateway**: state, mode, running sessions, health. The gateway runs cron jobs, Kanban tasks and messaging bots.
   **Restart gateway** (`hermes gateway restart`) interrupts the cron jobs, Kanban tasks and bot conversations
-  that are running at that moment.
+  that are running at that moment. When Hermes was updated but the gateway still runs the previous version, Kyllene
+  warns (*Hermes is running old code*) and offers **Restart…**; until you restart it, some actions such as switching
+  models can fail.
 - **Computer**: machine, CPU, memory, disk, uptime, Python.
 
 Kyllene checks itself after every Hermes update and tells you if something it uses changed. The Hermes versions a

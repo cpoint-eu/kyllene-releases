@@ -73,6 +73,9 @@ agent can read and edit it too, for example tick items off while it works.
   the backlog*, *estimate the effort*). The agent edits the file; **Undo** puts everything back as long as nobody else
   changed the tasklist meanwhile.
 - **Send to Kanban** turns a task into a card. When the card is finished, the task is ticked by itself.
+- **Export…** in the ⋯ menu of a tasklist or a section hands the tasks to someone else: the whole tasklist or only
+  this section, all tasks or only unfinished, task notes on or off, with a preview. **Copy** puts them on the
+  clipboard as plain text with `- [ ]` boxes, **Save as…** writes a Markdown file, **PDF…** opens the print window.
 - **Archive** moves a tasklist to `tasks/archive/` (out of the lists, restorable any time).
 - The keyboard inside the editor: [Keyboard shortcuts](shortcuts.md#text-editor-tasklists).
 

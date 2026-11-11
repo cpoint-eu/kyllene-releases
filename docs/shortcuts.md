@@ -85,6 +85,19 @@ where every command also shows its shortcut.
 | `Home` or `End` | Narrowest / widest panel |
 | Double-click | Back to the default width |
 
+## Pet
+
+| Keys | What it does |
+|---|---|
+| Drag | Move the pet; double-click puts it back in its corner |
+| `Alt` + wheel over the pet | Pet size |
+| `Shift`+click on the pet | Into its own window on the desktop and back |
+| Click on the popped-out pet | A message to the last conversation (quick-capture window) |
+| Double-click on the popped-out pet | Hide / show the main window |
+| none by default | *Pet…*, show / hide, own window / back, hatch a new pet: set your own key in [Settings › Shortcuts](settings.md#shortcuts) (**Set**) |
+
+More: [Pet](pet.md).
+
 ## Kanban
 
 | Keys | What it does |

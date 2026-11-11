@@ -10,7 +10,7 @@ Settings that belong to **Hermes** (skills, MCP servers, keys, cron jobs, Hermes
 Some choices are kept **only on this computer** (folders, devices, microphone), others **travel to your other
 computers** when [sync](sync.md) is on. Each section below says which.
 
-**Tabs:** [Projects](#projects) · [Appearance](#appearance) · [Models](#models) · [Backup & sync](#backup--sync) ·
+**Tabs:** [Projects](#projects) · [Appearance](#appearance) · [Pet](#pet) · [Models](#models) · [Backup & sync](#backup--sync) ·
 [Notifications](#notifications) · [Speech to text](#speech-to-text) · [Voice](#voice) ·
 [Automatic deletion](#automatic-deletion) · [Widgets](#widgets) · [Shortcuts](#shortcuts) · [Servers](#servers) ·
 [Coding agents](#coding-agents) · [Prompt templates](#prompt-templates) · [Quick capture](#quick-capture) ·
@@ -41,6 +41,25 @@ Where new projects go and how they are stored. More about projects: [Projects an
 
 Light/dark mode, the colour scheme, the surface style and the **language** (English / Czech) sit in the
 [status bar](#the-status-bar) at the bottom, so you can switch them without opening Settings.
+
+## Pet
+
+The animated pet that shows what the agent is doing. Hermes keeps **Show the pet**, the chosen pet and **Size**, so
+the CLI and TUI show the same.
+
+| Option | What it does |
+|---|---|
+| **Show the pet**, **Size** | Turn the pet on or off (also in the terminal) and set its size. |
+| **Hatch a new one…** | AI draws a new pet from your description (paid image generation; the cost is shown first). |
+| **Let the pet wander the window** | Off by default. The pet strolls along free spots while the agent is at rest. |
+| **Your pets** | Your installed pets: **Show**, and **⋯** › **Rename**, **Personality…**, **Repair animations…** (hatched pets), **Generate moods…**, **Remove**. Under the shown pet: its current **Mood** and **Animation length** (1–8 s per animation, free). |
+| **Pet brain** | **No memory** (default), **Memory**, **Agent** or **Combination**: how much the pet remembers and can do; with Memory its memory note, **What it knows about the user** (off by default) and **Skills**. |
+| **Comments** | The speech bubble: **Mode** (**Off** / **Prepared lines**, default / **AI lines**), **Model of the lines**, **Longest silence** (default 5 min), **Language**, **Comment on my messages too** (off by default). |
+| **Petdex** | The public gallery: search and **Adopt**. |
+
+The shown pet, its size, personality, brain, memory, skills, own moods and animation lengths and **Let the pet wander
+the window** travel to your other computers; whether the pet is shown, its spot on the screen and its mood stay on
+this computer. Everything in detail: [Pet](pet.md) ([česky](pet.cs.md)).
 
 ## Models
 
@@ -196,7 +215,8 @@ on). Files that cannot be used are listed with the reason.
 ## Shortcuts
 
 Every keyboard shortcut of the app, grouped by where it works. Most are fixed; the dictation keys can be changed
-here (**Change**), widget shortcuts in the widget's ⋯ › *Widget settings*, the system-wide quick-capture keys in your
+here (**Change**), the [pet](pet.md#palette-commands-and-shortcuts) commands (choose, show / hide, its own window,
+hatch) get a key of your own here (**Set**), widget shortcuts in the widget's ⋯ › *Widget settings*, the system-wide quick-capture keys in your
 desktop's settings. The full list: [Keyboard shortcuts](shortcuts.md).
 
 ## Servers

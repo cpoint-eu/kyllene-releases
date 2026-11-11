@@ -16,6 +16,7 @@ and [Manage Hermes](hermes.md). Wondering what something is for, or whether Kyll
 | [Sync between computers](sync.md) | What travels between your computers and what stays, how to set it up |
 | [Voice](voice.md) | Dictation, reading answers aloud, voice modes, voice commands, transcribing recordings |
 | [Quick capture](quick-capture.md) | The small window from anywhere: ask, note, add a task, with a screenshot or selected text |
+| [Pet](pet.md) | The animated pet that shows what the agent is doing: pick or hatch one, move it or pop it out onto the desktop, what its states and moods mean, comments, talking to it by name, personality, pet brain, repairing animations (also [in Czech](pet.cs.md)) |
 | [Keyboard shortcuts](shortcuts.md) | Every shortcut in one list |
 | [Build your own widget](widgets.md) | Cards and windows with your own data: manifest, data script, view, settings, actions, notices, a ready-to-run example |
 | [Troubleshooting](#troubleshooting) | The most common problems on the first start |

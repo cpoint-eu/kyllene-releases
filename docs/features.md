@@ -12,7 +12,7 @@ searches your conversations, tasklists, Kanban cards, project files and memory.
 [Left menu](#left-menu-and-navigation) · [Top menu](#top-menu) · [Palette and search](#palette-and-search) ·
 [Overview](#overview-today-and-timeline) · [Projects](#projects) · [Kanban](#kanban) ·
 [Agents and rooms](#agents-rooms-and-delegated-agents) · [Coding agents](#coding-agents) · [Widgets](#widgets) ·
-[Voice](#voice) · [Quick capture](#quick-capture) · [Servers and Gateway](#servers-and-gateway) ·
+[Voice](#voice) · [Quick capture](#quick-capture) · [Pet](#pet) · [Servers and Gateway](#servers-and-gateway) ·
 [Safety](#safety-and-approvals) · [Notifications](#notifications-and-the-bell) · [Achievements](#achievements) ·
 [Look](#appearance-and-themes) · [Sync and backups](#sync-backups-and-clean-up) · [Hermes](#managing-hermes) ·
 [Updates and help](#updates-help-and-first-start)
@@ -167,7 +167,7 @@ Let a conversation continue by itself later, even with the app closed (while the
 | Agents | Tab *Agents*: *New agent*, *Agent calls* (who asked whom and what), your agents by category (a click starts a conversation), *Manage agents*. Tab *Rooms*: your rooms, *New room*, *Quick room*, *All rooms (1)*. | Top bar › *Agents*, palette *Menu: Agents* |
 | Hermes | *Skills*, *MCP servers*, *Plugins*, *Models & providers*, *Keys*, *Cron jobs*, *Memory*, *Logs*, *System*, *Open management*. See [Managing Hermes](#managing-hermes). | Top bar › *Hermes*, palette *Menu: Hermes* |
 | Widgets | *Overview* and every widget by group; a click shows a widget or puts a closed one back. | Top bar › *Widgets*; see [Widgets](#widgets) |
-| Help | *Documentation*, *What's new*, *Check for updates*, *Report a bug*, *Suggest an improvement*, *About*, *Support development ☕*. | Top bar › *Help*, palette *Menu: Help*; see [Updates and help](#updates-help-and-first-start) |
+| Help | *Documentation*, *What's new*, *First-run guide*, *Check for updates*, *Report a bug*, *Suggest an improvement*, *About*, *Support development ☕*. | Top bar › *Help*, palette *Menu: Help*; see [Updates and help](#updates-help-and-first-start) |
 | Your widgets in a menu | Put any widget into the Work, Agents or Hermes menu as a live link. | In *Edit layout* › *+ Widget* at the bottom of the menu |
 
 Keyboard in the top menu: [shortcuts › Top menu](shortcuts.md#top-menu-work--agents--hermes).
@@ -203,6 +203,7 @@ A project is a folder with its conversations, files, instructions, memory, taskl
 | Edit project | *Basics* (code repository, file-write review, safety mode), *Look*, *Instructions* (default agent), *Memory*, *Files*, *Tasklists*, *Storage*, *Sensitive data*. | ⋯ › *Edit project* ([guide](projects.md#the-project-window)) |
 | Files | Browse and preview the project's files in the right panel. | Project menu › *Files* |
 | Tasklists | Markdown checklists the agent reads and ticks; edit like a document, *Ask AI…* on a task, *Send to Kanban*, *Tasklist by AI…*. | Project menu › *Tasklists* ([guide](projects.md#tasklists)) |
+| Export a tasklist | Copy the tasks or save them as Markdown or PDF to hand them to someone: the whole tasklist or one section, all tasks or only unfinished, with or without notes. | ⋯ of a tasklist or section › *Export…* ([guide](projects.md#tasklists)) |
 | Outputs | A gallery of what agents made in the project: HTML, images, diagrams, PDFs, documents. | Project menu › *Outputs*, `Ctrl+Shift+O`, palette *Project outputs* / *Close project outputs* |
 | Git | Changes with diffs, an AI commit message, branches, pull and push, each write confirmed first. | Project menu › *Git*, palette *Git: project* ([guide](projects.md#outputs-git-and-focus)) |
 | Focus mode | Narrow the app to one project; other conversations keep running hidden, their notifications wait in the bell. | ⋯ › *Focus mode*, `Ctrl+Shift+F`, palette *Focus mode: project* / *End focus mode (project)* |
@@ -288,6 +289,27 @@ screenshot or the selected text. Guide: [Quick capture](quick-capture.md).
 | Quick capture | Ask / note / task in a small window; the answer shows there. | System-wide shortcut (switch on in [Settings › Quick capture](settings.md#quick-capture)), tray icon, palette *Quick capture…* |
 | Screenshot → Hermes | Take a screenshot and ask about it. | Tray menu, palette *Screenshot → Hermes…* |
 
+## Pet
+
+An animated pet in the corner of the conversation shows what the agent is doing; it can have a mood, comment in a
+speech bubble and answer when you talk to it by name. Guide: [Pet](pet.md).
+
+| Feature | What it is for | Where |
+|---|---|---|
+| Show or hide the pet | Turn the pet on or off (in the terminal too) and set its size. | [Settings › Pet](settings.md#pet) › *Show the pet*, `Alt` + wheel over the pet, palette *Pet: show* / *Pet: hide* ([guide](pet.md#turn-it-on-and-off)) |
+| Pick a pet | Adopt one from the public Petdex gallery and switch between your pets. | Settings › Pet › *Petdex* › *Adopt*, *Your pets* › *Show*; palette *Pet…* ([guide](pet.md#install-and-pick-a-pet)) |
+| Hatch a new pet | AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first). | Settings › Pet › *Hatch a new one…*, palette *Pet: hatch a new one…* ([guide](pet.md#hatch-your-own-pet-with-ai)) |
+| Move and wander | Drag it anywhere (it never covers text), double-click returns it to its corner; let it stroll the window while the agent rests. | On the pet; Settings › Pet › *Let the pet wander the window*, palette *Pet: wander the window* / *Pet: stop wandering* ([guide](pet.md#move-the-pet)) |
+| Pet in its own window | The pet on the desktop, on top of other apps: click = a message to the last conversation, double-click hides / shows Kyllene, a bubble says *Working…* / *Your turn*, a letter shows answers that finished while you were away. | `Shift`+click on the pet, palette *Pet: into its own window* / *Pet: back into the app window* ([guide](pet.md#the-pet-in-its-own-window)) |
+| Mood | The pet's mood follows how the work goes (grumpy after failures, happy after successes, sleepy when quiet), with a short mark over its head; hearts when you say thanks. | Settings › Pet shows the current *Mood* ([guide](pet.md#mood)) |
+| Comments | Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages. | Settings › Pet › *Comments* ([guide](pet.md#comments-in-a-speech-bubble)) |
+| Talk to the pet | Write to it by name (*Boba, what do you think?*) and it answers in its bubble. | In any conversation ([guide](pet.md#talk-to-the-pet-by-name)) |
+| Personality | The pet's name and nature, written by you or suggested by AI; they shape its comments. | The pet's ⋯ › *Personality…* in Settings › Pet, or right-click the pet ([guide](pet.md#personality)) |
+| Pet brain | *No memory*, *Memory* (a memory note and small skills), *Agent* (its own Hermes profile with tools) or *Combination*. | Settings › Pet › *Pet brain* ([guide](pet.md#pet-brain)) |
+| Repair animations | Redraw only the broken animations of a hatched pet, with an instruction per animation; set how long each animation plays (1–8 s, free). | The pet's ⋯ › *Repair animations…*, right-click the pet, palette *Pet: repair animations…*; *Animation length* in Settings › Pet ([guide](pet.md#repair-animations-and-animation-length)) |
+| Moods of its own | Draw the pet's own animation for chosen moods (any pet; paid, one image per mood). | The pet's ⋯ › *Generate moods…*, right-click the pet, palette *Pet: generate moods…* ([guide](pet.md#generate-moods)) |
+| On other computers | The shown pet, its personality, brain and own moods follow you with sync; a hatched pet is never hatched twice. | [Sync between computers](sync.md) ([guide](pet.md#on-your-other-computers)) |
+
 ## Servers and Gateway
 
 | Feature | What it is for | Where |
@@ -372,4 +394,5 @@ it by hand. After every Hermes update Kyllene checks that everything it uses sti
 | About | Version and the Hermes versions it was tested with. | Top menu › Help › *About*, palette *About* ([Settings › About](settings.md#about)) |
 | Support development | A tip on Ko-fi, if you like the app. | Top menu › Help › *Support development ☕*, palette *Help › Support development ☕* |
 | Settings | Everything Kyllene itself remembers. | The gear in the top bar, `Ctrl+,`, palette *Settings* ([guide](settings.md)) |
+| First-run guide | A welcome window on the first start: checks Hermes, helps you connect a model and create a first project, then a short tour that highlights each part of the window. Every step can be skipped. | Opens by itself on a fresh install; Top menu › Help › *First-run guide*, palette *Help › First-run guide* |
 | First start | Without Hermes, Kyllene offers *Install Hermes Agent*; without a model, *Connect a model*. | Shown by itself ([troubleshooting](README.md#troubleshooting)) |

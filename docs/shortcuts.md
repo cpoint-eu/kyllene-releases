@@ -26,7 +26,7 @@ where every command also shows its shortcut.
 | `Ctrl+Shift+F` | Focus mode on the current project ⇄ the whole app |
 | `Ctrl+Shift+O` | Project outputs (right panel) on / off |
 | `Ctrl+Shift+D` | Bookmarks window |
-| none by default | Hermes › System, Loops › runs, and the Kanban board in a [window of their own](features.md#dialogs-in-their-own-window): set your own key in [Settings › Shortcuts](settings.md#shortcuts) (**Set**) |
+| none by default | Hermes › System, Loops › runs, the Kanban board and the recording transcription in a [window of their own](features.md#dialogs-in-their-own-window): set your own key in [Settings › Shortcuts](settings.md#shortcuts) (**Set**) |
 
 `Esc` closes the topmost dialog in the main window; in a dialog that has moved into its own window it does nothing
 (close that window with its ✕).
@@ -98,7 +98,7 @@ where every command also shows its shortcut.
 | `Shift`+click on the pet | Into its own window on the desktop and back |
 | Click on the popped-out pet | A message to the last conversation (quick-capture window) |
 | Double-click on the popped-out pet | Hide / show the main window |
-| none by default | *Pet…*, show / hide, own window / back, hatch a new pet (also in its own window), the line history, transcribing a recording in its own window: set your own key in [Settings › Shortcuts](settings.md#shortcuts) (**Set**) |
+| none by default | *Pet…*, show / hide, own window / back, hatch a new pet (also in its own window), the line history: set your own key in [Settings › Shortcuts](settings.md#shortcuts) (**Set**) |
 
 More: [Pet](pet.md).
 

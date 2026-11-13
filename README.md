@@ -199,12 +199,21 @@ Every release is signed and tied to the Hermes versions it was tested with, so a
 cannot work with.
 
 <details>
-<summary>Other options: a specific version, manual download, uninstall</summary>
+<summary>Other options: a specific version, manual download, .deb / .rpm, uninstall</summary>
 
 - A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.3-beta`
 - An AppImage you already downloaded: `bash install.sh --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage`
 - Without the installer: download `Kyllene_<version>_amd64.AppImage` from the
   [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest), `chmod +x` it and run it.
+- As a system package (releases newer than 0.0.3-beta): every release also has a `.deb` (Ubuntu, Debian, Mint) and an `.rpm`
+  (Fedora and relatives). Download it from the [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest)
+  and install it with `sudo apt install ./Kyllene_<version>_amd64.deb` or `sudo dnf install ./Kyllene-*.x86_64.rpm`.
+  It uses your distro's own WebKit and GStreamer and is smaller than the AppImage. Kyllene updates it by itself too;
+  the update asks for your password (administrator rights). The `.rpm` is signed: for its updates import the
+  [Kyllene key](kyllene-rpm-key.asc) once with
+  `sudo rpm --import https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/kyllene-rpm-key.asc`
+  (fingerprint `F63B EED1 D3A3 9A63 6D8F  BFB5 0312 0649 27BA AF1E`). Uninstall with `sudo apt remove kyllene` or
+  `sudo dnf remove kyllene` (your data stays). Use either the package or the AppImage, not both.
 - Uninstall (your data in `~/.local/share/kyllene` and Hermes in `~/.hermes` stay):
 
   ```bash

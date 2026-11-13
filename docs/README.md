@@ -6,7 +6,7 @@ and [Manage Hermes](hermes.md). Wondering what something is for, or whether Kyll
 
 | Guide | What it covers |
 |---|---|
-| [Install and update](https://cpoint-eu.github.io/kyllene/#install) | Requirements, the one-line installer, automatic updates, uninstall (also [in Czech](https://cpoint-eu.github.io/kyllene/cs/#install)) |
+| [Install and update](https://cpoint-eu.github.io/kyllene/#install) | Requirements, the one-line installer, `.deb` / `.rpm` packages, automatic updates, uninstall (also [in Czech](https://cpoint-eu.github.io/kyllene/cs/#install)) |
 | [Everything in Kyllene](features.md) | A catalog of every feature by area: what it is for, where you find it (menu, shortcut, palette command) and the guide that explains it; also [dialogs in their own window](features.md#dialogs-in-their-own-window) |
 | [Settings](settings.md) | Every Settings tab: what each option does, its default, and when to change it |
 | [Manage Hermes](hermes.md) | The Hermes window: skills and the hub, MCP servers and tool selection, plugins, cron jobs, profiles, models and providers, keys, memory, logs, system, config, hooks, channels, webhooks, statistics |
@@ -35,6 +35,7 @@ were looking for.
 | The window stays empty or white | Start it once with `WEBKIT_DISABLE_DMABUF_RENDERER=1 ~/.local/bin/Kyllene.AppImage` (if still empty, `WEBKIT_DISABLE_COMPOSITING_MODE=1` instead) and [report your GPU and desktop](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml). |
 | *"Hermes could not be started"* | The first start of Hermes after installing it can take up to a minute; Kyllene tries twice more before it shows this screen with the details. Check that Hermes works in a terminal (`hermes`), then restart Kyllene. |
 | Colour emoji are missing, or the AppImage crashes at start (Fedora) | Update to Kyllene 0.0.3-beta or newer: the AppImage brings its own colour emoji font. |
+| The update of a `.deb` / `.rpm` install fails | Kyllene installed as a system package updates itself through `pkexec` and asks for your password; cancelling the password prompt cancels the update. On Fedora the `.rpm` update needs the Kyllene signing key, imported once: `sudo rpm --import https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/kyllene-rpm-key.asc`. You can also download the new package from the [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest) and install it with `sudo apt install ./Kyllene_<version>_amd64.deb` or `sudo dnf install ./Kyllene-*.x86_64.rpm`. |
 | *Hermes management is already running an action* | An update, doctor or gateway restart is still running; only one runs at a time. Its live log is in Hermes › *System*; try again when it has finished. |
 | A dialog window does not close with `Esc` | On purpose: a dialog moved into [its own window](features.md#dialogs-in-their-own-window) closes with the window's ✕ (a running job goes on in the main window). |
 | Conversations start but the model does not answer | Hermes has no model yet: click **Connect a model** in the bar *Hermes has no model connected.* and sign in to a provider (the first one becomes the main model), or run `hermes setup` in a terminal. An empty conversation you opened before that uses the new main model too. |

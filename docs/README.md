@@ -29,7 +29,8 @@ were looking for.
 
 | Problem | What to do |
 |---|---|
-| The AppImage does not start: *"No suitable fusermount binary found on the $PATH"* | Install FUSE: `sudo pacman -S fuse3` (Manjaro, Arch), then start Kyllene again. The installer checks this for you. |
+| The AppImage does not start: *"No suitable fusermount binary found on the $PATH"* | Install FUSE: `sudo apt install fuse3` (Debian, Ubuntu), `sudo dnf install fuse3` (Fedora) or `sudo pacman -S fuse3` (Manjaro, Arch), then start Kyllene again. The installer checks this for you. |
+| The AppImage closes right at start: *"Couldn't open libGLESv2.so.2"* | Install OpenGL ES: `sudo apt install libgles2` (Debian, Ubuntu), `sudo dnf install libglvnd-gles` (Fedora) or `sudo pacman -S libglvnd` (Manjaro, Arch). Desktop installs have it; the installer warns when it is missing. |
 | Kyllene is not in the app menu | Run the [installer](../install.sh) again; it adds the menu entry (`~/.local/share/applications/kyllene.desktop`). |
 | The window stays empty or white | Start it once with `WEBKIT_DISABLE_DMABUF_RENDERER=1 ~/.local/bin/Kyllene.AppImage` (if still empty, `WEBKIT_DISABLE_COMPOSITING_MODE=1` instead) and [report your GPU and desktop](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml). |
 | *"Hermes could not be started"* | The first start of Hermes after installing it can take up to a minute; Kyllene tries twice more before it shows this screen with the details. Check that Hermes works in a terminal (`hermes`), then restart Kyllene. |

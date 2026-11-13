@@ -177,8 +177,8 @@ wherever you want: the side panel, the Overview, the top or bottom bar, or the m
 
 ## Get Kyllene
 
-**Requirements:** Linux x86_64. The first beta is tested on Manjaro (GNOME, Wayland); the same AppImage is expected
-to run on other modern distros, and the installer only warns there.
+**Requirements:** Linux x86_64. Tested on Manjaro, Ubuntu 22.04 and 24.04 and Fedora (GNOME, Wayland); the same
+AppImage runs on other modern distros too.
 
 Install it with one line (no `sudo`, everything goes into your home folder):
 
@@ -187,7 +187,7 @@ curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/ins
 ```
 
 The [installer](install.sh) downloads the latest AppImage to `~/.local/bin/Kyllene.AppImage`, adds Kyllene with its
-icon to your app menu and checks that AppImages can run (FUSE; Manjaro ships it). Then start **Kyllene** from the
+icon to your app menu and checks that AppImages can run (FUSE and OpenGL ES; desktop installs ship both). Then start **Kyllene** from the
 app menu. [Hermes Agent](https://hermes-agent.nousresearch.com/) is not needed beforehand: when it is missing,
 Kyllene offers to install it on the first start (about 2.7 GB, a few minutes) and then lets you sign in to a model
 (**Connect a model**; the first provider you connect becomes the main model). A **first-run guide** walks you
@@ -230,7 +230,7 @@ in order, check each result, and stop and tell the user when a check fails. Do n
 and then ask the user first.
 
 1. **Check the platform.** `uname -sm` must print `Linux x86_64`. Otherwise stop: only Linux x86_64 is supported for
-   now. Tested on Manjaro; other modern distros are expected to work.
+   now. Tested on Manjaro, Ubuntu and Fedora; other modern distros work too.
 2. **Check for Hermes Agent.** `command -v hermes || ls ~/.local/bin/hermes`
    - Found: go on.
    - Missing: install it without questions (no sudo, a few GB in `~/.hermes`, needs `git` and `curl`;
@@ -242,7 +242,7 @@ and then ask the user first.
 
      Then check `~/.local/bin/hermes --version`. The installer adds `~/.local/bin` to PATH only for new shells.
 3. **Install Kyllene** with its installer (downloads the latest AppImage to `~/.local/bin/Kyllene.AppImage`, adds the
-   menu entry and icon, checks FUSE; no sudo):
+   menu entry and icon, checks FUSE and OpenGL ES; no sudo):
 
    ```bash
    curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash
@@ -250,11 +250,14 @@ and then ask the user first.
 
    It must end with `Done.` and exit code 0. When it stops instead, it says why:
    - *No Kyllene release is published yet*: stop and tell the user.
-   - *FUSE is missing*: ask the user to install it (`sudo pacman -S fuse3` on Manjaro/Arch; Debian/Ubuntu
-     `sudo apt install fuse3`; Fedora `sudo dnf install fuse3`), then run the installer again.
+   - *FUSE is missing*: ask the user to run the install command the installer prints for their distro
+     (`sudo apt install fuse3` on Debian/Ubuntu, `sudo dnf install fuse3` on Fedora, `sudo pacman -S fuse3` on
+     Manjaro/Arch), then run the installer again.
    - *belongs to another Kyllene install*: the user already has Kyllene built from source; ask before re-running
      with `bash -s -- --force`.
-   - On a distro other than Manjaro it only warns and installs anyway.
+   - *libGLESv2.so.2 (OpenGL ES) was not found*: it installs anyway, but the window would close right at start;
+     ask the user to run the printed command (`sudo apt install libgles2`, `sudo dnf install libglvnd-gles`,
+     `sudo pacman -S libglvnd`).
 4. **Start it:** `gtk-launch kyllene` (or run `~/.local/bin/Kyllene.AppImage` from the user's desktop session).
    A window titled Kyllene opens and connects to Hermes.
 5. **Tell the user what is left for them:**

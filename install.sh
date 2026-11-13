@@ -15,7 +15,7 @@
 #   --force              replace a menu entry that belongs to another Kyllene install
 #   -h, --help           show this help
 #
-# Supported for now: Manjaro. Other distros get a warning; the AppImage usually works there too.
+# Tested on Manjaro, Ubuntu 22.04/24.04 and Fedora; other modern x86_64 distros usually work too.
 # Your data stays on uninstall: ~/.local/share/kyllene (Kyllene) and ~/.hermes (Hermes Agent).
 
 set -u
@@ -57,22 +57,70 @@ usage() {
 
 # --- checks ---------------------------------------------------------------------------------------------------------
 
+# Distro from os-release: its name and family (arch | debian | fedora | suse | ""), for package hints.
+DISTRO_NAME="" DISTRO_ID="" DISTRO_FAMILY=""
+read_distro() {
+  local like="" w
+  if [ -r "$OS_RELEASE" ]; then
+    # shellcheck disable=SC1090
+    DISTRO_ID="$(. "$OS_RELEASE"; printf '%s' "${ID:-}")"
+    # shellcheck disable=SC1090
+    DISTRO_NAME="$(. "$OS_RELEASE"; printf '%s' "${PRETTY_NAME:-${NAME:-}}")"
+    # shellcheck disable=SC1090
+    like="$(. "$OS_RELEASE"; printf '%s' "${ID_LIKE:-}")"
+  fi
+  for w in $DISTRO_ID $like; do
+    case "$w" in
+      arch|manjaro|endeavouros|garuda|cachyos) DISTRO_FAMILY=arch ;;
+      debian|ubuntu|linuxmint|pop|elementary|zorin|neon) DISTRO_FAMILY=debian ;;
+      fedora|rhel|centos|rocky|almalinux|nobara) DISTRO_FAMILY=fedora ;;
+      suse|opensuse|opensuse-tumbleweed|opensuse-leap|sles) DISTRO_FAMILY=suse ;;
+      *) continue ;;
+    esac
+    break
+  done
+  if [ -z "$DISTRO_FAMILY" ]; then  # no os-release match: go by the package manager
+    if command -v pacman >/dev/null 2>&1; then DISTRO_FAMILY=arch
+    elif command -v apt-get >/dev/null 2>&1; then DISTRO_FAMILY=debian
+    elif command -v dnf >/dev/null 2>&1; then DISTRO_FAMILY=fedora
+    elif command -v zypper >/dev/null 2>&1; then DISTRO_FAMILY=suse
+    fi
+  fi
+}
+
+# The install command for a package on this distro: $1 = arch name, $2 = debian, $3 = fedora, $4 = suse.
+pkg_cmd() {
+  case "$DISTRO_FAMILY" in
+    arch) printf 'sudo pacman -S %s' "$1" ;;
+    debian) printf 'sudo apt install %s' "$2" ;;
+    fedora) printf 'sudo dnf install %s' "$3" ;;
+    suse) printf 'sudo zypper install %s' "$4" ;;
+  esac
+}
+
+# Prints the install hint for a package, or the commands for all common distros when the distro is unknown.
+pkg_hint() {
+  local cmd; cmd="$(pkg_cmd "$@")"
+  if [ -n "$cmd" ]; then warn "    $cmd"; return; fi
+  warn "    sudo apt install $2        (Debian, Ubuntu, Mint)"
+  warn "    sudo dnf install $3        (Fedora)"
+  warn "    sudo pacman -S $1          (Arch, Manjaro)"
+}
+
 check_platform() {
   [ "$(uname -s)" = Linux ] || die "Kyllene runs on Linux only for now (this is $(uname -s))."
   [ "$(uname -m)" = x86_64 ] || die "Kyllene is built for x86_64 only for now (this is $(uname -m))."
-  local id="" name=""
-  if [ -r "$OS_RELEASE" ]; then
-    # shellcheck disable=SC1090
-    id="$(. "$OS_RELEASE"; printf '%s' "${ID:-}")"
-    # shellcheck disable=SC1090
-    name="$(. "$OS_RELEASE"; printf '%s' "${PRETTY_NAME:-${NAME:-}}")"
-  fi
-  if [ "$id" = manjaro ]; then
-    ok "$name"
-  else
-    warn "${name:-This distro} is not supported yet: Kyllene is tested on Manjaro only for now."
-    warn "Installing anyway; the AppImage usually runs on other modern distros too."
-  fi
+  read_distro
+  case "$DISTRO_ID" in
+    manjaro|ubuntu|fedora) ok "${DISTRO_NAME:-$DISTRO_ID}" ;;
+    *)
+      if [ -n "$DISTRO_FAMILY" ]; then
+        ok "${DISTRO_NAME:-Linux} (tested on Manjaro, Ubuntu and Fedora; this one should work too)"
+      else
+        say "${DISTRO_NAME:-This distro} is not tested yet (tested: Manjaro, Ubuntu, Fedora); the AppImage usually runs anyway."
+      fi
+      ;;
+  esac
 }
 
 # The AppImage runtime (static type-2 runtime) carries its own libfuse: it needs only a `fusermount3` or `fusermount`
@@ -84,11 +132,30 @@ check_fuse() {
   if [ -z "$helper" ]; then
     warn "AppImages need FUSE, and neither fusermount3 nor fusermount is installed."
     warn "Install it, then run this installer again:"
-    warn "    sudo pacman -S fuse3"
+    pkg_hint fuse3 fuse3 fuse3 fuse3
     die "FUSE is missing."
   fi
   warn "/dev/fuse is missing (a container or a kernel without FUSE?). Kyllene will not start this way;"
   warn "run it as: $APP --appimage-extract-and-run"
+}
+
+# The bundled WebKit loads the system's OpenGL ES library at run time (ldd does not show it); without it the app
+# aborts right at start ("Couldn't open libGLESv2.so.2"). Every desktop install has it, minimal ones may not.
+LIB_DIRS="${KYLLENE_LIB_DIRS:-}"
+check_gles() {
+  local d ldc
+  if [ -z "$LIB_DIRS" ]; then
+    ldc="$(command -v ldconfig 2>/dev/null || true)"
+    [ -n "$ldc" ] || for d in /sbin /usr/sbin; do [ -x "$d/ldconfig" ] && ldc="$d/ldconfig"; done
+    if [ -n "$ldc" ] && "$ldc" -p 2>/dev/null | grep -q 'libGLESv2\.so\.2 '; then ok "OpenGL ES (libGLESv2)"; return 0; fi
+    LIB_DIRS="/usr/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu /usr/lib64 /lib64 /usr/lib /lib"
+  fi
+  for d in $LIB_DIRS; do
+    if [ -e "$d/libGLESv2.so.2" ]; then ok "OpenGL ES (libGLESv2)"; return 0; fi
+  done
+  warn "libGLESv2.so.2 (OpenGL ES) was not found; Kyllene's window needs it and would close right at start."
+  warn "Install it (installing Kyllene goes on now):"
+  pkg_hint libglvnd libgles2 libglvnd-gles libglvnd
 }
 
 need() { command -v "$1" >/dev/null 2>&1 || die "\`$1\` is missing; install it and run this installer again."; }
@@ -168,6 +235,7 @@ do_install() {
   check_platform
   need curl
   check_fuse
+  check_gles
   if ! desktop_is_ours && [ "$force" != 1 ]; then
     die "$DESKTOP belongs to another Kyllene install (built from source?). Run again with --force to replace it."
   fi

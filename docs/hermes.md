@@ -113,12 +113,16 @@ Every Hermes profile is an **agent** with its own model, personality, memory, sk
 - **New profile** is a short wizard: *Basics* (name, description, model, start from a fresh profile or a copy,
   take over the keys), then *MCP servers*, *Skills*, *Channels*, *Variables* and a *Summary*. The description
   matters: Hermes uses it to decide which profile gets a Kanban task.
-- The detail: the model (changeable), whether its gateway runs, its folder, description, **Personality**
+- The detail: the model (changeable), its own **Thinking** level (how hard its model thinks in its new conversations;
+  **Hermes default** removes it, and the agent then runs on Hermes' default level, not on the one in
+  [Settings › Models](settings.md#models)), whether its gateway runs, its folder, description, **Personality**
   (`SOUL.md`, who the agent is and how it talks), its skills and tool sets with switches, and its own variables
   (`.env`). Changes apply to the profile's new conversations.
 - **Export** saves a profile to an archive (choose settings, skills, memory, cron jobs, code); secret values are
   never put in. **Import** creates a profile from such an archive or from `hermes profile export`.
-- **Agent detail** opens the agent's own window (look, skills, memory, cron, groups).
+- **Agent detail** opens the agent's own window (look, skills, memory, cron, groups); its **Basics** tab has the same
+  model, **Thinking** and personality. **Open in a new window** in its header moves it into a window of its own;
+  there, changing the model and an AI picture are done in the main window.
 
 ## Models & providers
 
@@ -172,6 +176,15 @@ Hermes' logs: the file (`agent.log`, gateway…), minimum level, one part of Her
   warns (*Hermes is running old code*) and offers **Restart…**; until you restart it, some actions such as switching
   models can fail.
 - **Computer**: machine, CPU, memory, disk, uptime, Python.
+
+**Update**, **Doctor** and **Restart gateway** run one at a time, with a live log. When you close the window while one
+runs and open it again, it shows that action and its log; another one cannot start until it ends. The same holds for
+**Update Hermes** in Kyllene's update window: while Hermes management runs an action, it says so and points here.
+
+**Open in a new window** in the header of the *System* tab (or `Ctrl+K` › *Hermes › System in a new window…*) moves
+the tab into a window of its own, for example to watch a long update. The *System* tab in the main window then only
+offers **Show the window**. ✕ closes only the window and the action goes on; when it ends, the bell says *Hermes ›
+System: done* (or *failed*). **Back to the main window** in the window's header returns it.
 
 Kyllene checks itself after every Hermes update and tells you if something it uses changed. The Hermes versions a
 Kyllene release was tested with are in [Settings › About](settings.md#about).

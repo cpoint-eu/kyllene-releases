@@ -52,6 +52,18 @@ Drag a card to another column to change its state.
 - A tasklist task sent to Kanban (**Send to Kanban** in the tasklist) is ticked by itself once its card is
   finished.
 
+## The board in its own window
+
+**Open in a new window** in the board's header (or `Ctrl+K` › *Kanban in a new window…*, which opens the board of the
+project you are in) moves the board with the card detail into a window of its own, for example on a second monitor.
+In the window you move cards, comment, answer, edit, create and archive as usual; a run opens in the card's **Card
+run** window. Starting coding agents, review, merging and moving a card to another board are done in the main window:
+the card's **Agents and code** section offers **Open the card in the main window**.
+
+Opening a board or a card from anywhere else (the left menu, the bell, a tasklist) while the window is open switches
+the window to it and brings it up. `Esc` does not close the window, ✕ closes only the window (card runs keep going),
+and **Back to the main window** in its header shows the same card in the main window.
+
 ## Old cards
 
 Archived cards are kept until you delete them: *Delete older than …* in the *Archived* column header for one board,

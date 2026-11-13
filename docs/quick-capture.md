@@ -28,6 +28,8 @@ Pick one of three kinds at the top:
 - **Answer in the main window**: on = Kyllene comes up with the new conversation; off (default) = the answer shows
   in the small window and the conversation runs in a background tab.
 - When Hermes needs your approval or an answer, the small window says so: continue in the main window.
+- The window remembers what you picked for the last send (the kind, where a task goes, the project and tasklist,
+  where the answer shows) and offers it again next time. It grows to fit the form.
 
 ## On Wayland
 

@@ -65,6 +65,10 @@ your desktop session).
 - **Runs**: round x of max, the current step, time and spend; *Pause after the current step*, *Continue*, *Stop
   now* and the *Log* of every step. With *Pause when the agent asks*, an answer that ends with a question pauses the
   run and notifies you; your answer goes to the same step again.
+- **Runs in their own window**: **Open in a new window** on the *Runs* tab (or `Ctrl+K` › *Loops › runs in a new
+  window…*) moves the runs with their logs into a window of their own; pause, continue, answering the agent's question
+  and stop work there too, while starting a run stays in the editor. The *Runs* tab in the main window then offers
+  **Show the window**. ✕ closes only the window; the loops keep running.
 - Each round is a fresh, non-interactive run of the agent. Agents in a loop **never push**: `git push` is denied.
 
 ## Limits

@@ -10,8 +10,9 @@ mood, the comments and the personality on top. *Česky: [Maskot](pet.cs.md).*
 **On this page:** [Turn it on](#turn-it-on-and-off) · [Install and pick a pet](#install-and-pick-a-pet) ·
 [Hatch your own](#hatch-your-own-pet-with-ai) · [Move it](#move-the-pet) · [Its own window](#the-pet-in-its-own-window) ·
 [States](#what-the-pets-states-mean) · [Mood](#mood) · [Comments](#comments-in-a-speech-bubble) ·
-[Talk to it](#talk-to-the-pet-by-name) · [Personality](#personality) · [Pet brain](#pet-brain) ·
-[Repair animations](#repair-animations-and-animation-length) · [Own moods](#generate-moods) ·
+[Line history](#line-history) · [Talk to it](#talk-to-the-pet-by-name) ·
+[Personality](#personality) · [Pet brain](#pet-brain) · [Repair animations](#repair-animations-and-animation-length) ·
+[Own moods](#generate-moods) · [Dialogs in a window](#pet-dialogs-in-their-own-window) ·
 [Other computers](#on-your-other-computers) · [Palette and shortcuts](#palette-commands-and-shortcuts) ·
 [Troubleshooting](#troubleshooting)
 
@@ -61,7 +62,8 @@ off). Kyllene notices the change by itself, no restart needed.
 
 - **Drag it** anywhere with the mouse. Dropped over text, it moves to the nearest free spot so it never covers an
   answer or the box you type in. The spot is remembered across restarts.
-- **Double-click** puts it back in its corner (bottom right, above the box you type in).
+- **Double-click** puts it back in its corner (bottom right, above the box you type in), and its speech bubble back
+  beside it.
 - The spot is remembered per computer (each one has its own screen).
 - **Let the pet wander the window** in Settings › Pet (off by default; palette *Pet: wander the window* / *Pet: stop
   wandering*) lets it stroll along free spots while the agent is at rest. As soon as the agent works, it goes back to
@@ -110,7 +112,14 @@ its moods for free; [Generate moods](#generate-moods) draws its own animations f
 ## Comments in a speech bubble
 
 Now and then the pet comments on the agent's work in a speech bubble: a failed tool or test, a question for you, a
-finished turn. The bubble stays until you click it or the next line replaces it; hover the pet to see its last lines.
+finished turn. The bubble stays until you click it or the next line replaces it.
+
+- The bubble appears **beside the pet** and stays where it is, also when the pet walks on, so you can read it; thought
+  dots lead from the bubble to the pet.
+- **Drag the bubble** anywhere: later lines appear at the same spot (remembered on each computer). Double-click the pet
+  to put the bubble back beside it.
+- Hover the pet for **Line history (n)**, which opens [all its lines](#line-history).
+
 Set it up in Settings › Pet › **Comments**:
 
 | Option | What it does |
@@ -120,6 +129,17 @@ Set it up in Settings › Pet › **Comments**:
 | **Longest silence** | While an agent works and the pet has said nothing for this long (2–30 min, default 5), it comments on what is going on. With nothing running it stays quiet. |
 | **Language** | **Like the app** (Kyllene's language on each computer), *Čeština* or *English*. |
 | **Comment on my messages too** | Off by default. The pet now and then reacts to a message you send (not to short replies or commands, at most every 3 minutes). With AI lines your message goes to the comment model. |
+
+## Line history
+
+**Line history** shows every line the pet said since Kyllene started on this computer, newest first: when it said it,
+what it reacted to (*Tool … failed*, *The agent finished its work*, *Your message to the agent: …*) and in which
+conversation. The tabs at the top sort the lines into **Talking to it**, **Your messages**, **Agent's run** and
+**Out of boredom** (**All** shows everything); **Newer** and **Older** page through them.
+
+Open it by hovering the pet › **Line history (n)** (also on the popped-out pet), with a right-click on the pet ›
+**Line history…**, or with `Ctrl+K` › *Pet: line history…*. The history covers only this run of Kyllene on this
+computer.
 
 ## Talk to the pet by name
 
@@ -134,6 +154,11 @@ Each pet can have a **Name** and a **Nature** (*endlessly curious, talks short a
 shape its comments. Set them when hatching, or later in the pet's **⋯** › **Personality…** (also on a right-click on
 the pet); a pet without one offers **Add a personality**. **Invent with AI** suggests both. The personality is kept
 in Kyllene's settings and travels with the pet to your other computers; Hermes is not changed.
+
+A pet with its own agent ([Agent or Combination](#pet-brain)) has one personality: saving **Personality…** rewrites
+the agent's personality (`SOUL.md`), and saving **Personality (SOUL.md)** in the agent's detail (**Basics**) changes
+the pet's nature too (a SOUL you wrote yourself becomes the whole nature, so none of your instructions is lost). Its
+next line already uses the new personality.
 
 ## Pet brain
 
@@ -160,20 +185,43 @@ With **Memory** or **Combination** two more parts show:
 from the pet's nature, its own memory, skills and tools). The profile then shows among your agents; delete it in
 Hermes › Profiles. When the agent cannot answer, the pet speaks with Memory (Combination) or as with No memory (Agent).
 
+With its own agent the pet has **one memory, one set of skills and one personality**, shared with that agent:
+
+- **Memory** in Settings › Pet is the agent's own memory, the same note as in the agent's detail › **Memory**. What
+  the pet remembers, rewrites or forgets shows there, and what you edit in either place, the other sees. With
+  **Agent** the pet looks after this memory itself (no daily tidy).
+- **What it knows about you** is a second note: what the agent remembers about you, the same as in the agent's detail
+  › Memory › *What it knows about you*. The pet writes there itself, and so does Hermes after a conversation.
+- **Skills** show with **Agent** too. Kyllene copies them into the agent's profile as Hermes skills; the agent's
+  detail › **Skills** lists them under **Pet skills · Boba**. Edit them in Settings › Pet › Skills: a change made to
+  the copies in the agent is replaced by the pet's version.
+- Before each line the agent gets the pet's latest lines from all your computers, so it does not repeat itself.
+
+Both notes and the skills travel with the pet to your other computers.
+
 ## Repair animations and animation length
 
 **Animation length** in Settings › Pet (under the shown pet) sets how long each of the pet's animations plays, from
 1 to 8 seconds (**Normal** is 1.1 s); **All back to normal** resets them. It is free and applies at once.
 
 For a pet you hatched, **Repair animations…** (its **⋯** menu, a right-click on the pet, or `Ctrl+K` › *Pet: repair
-animations…*) redraws only the animations that look wrong:
+animations…*) shows each animation on its own and redraws only the ones that look wrong:
 
-1. Every animation plays side by side. Tick the broken ones. Under each you can write **What should look different
-   (optional)**; its length slider here also sets how many frames the new animation gets.
-2. Pick the **Image provider** and **Image model** as when hatching (one image per animation, the cost is shown) and
-   click **Draw again**.
-3. Compare **Now** and **New**, then **Use** or **Discard** each one; **Apply and close** saves every new animation
-   you did not discard. **Restore previous look** undoes the last repair.
+1. **Pick an animation** in the list on the left. The detail on the right plays **Now**, exactly what the pet plays
+   (with its frame count; *longer version* when it plays a longer one Kyllene drew), and says when the pet plays it,
+   for example *When the agent finishes an answer*.
+2. **Length**: how long this animation plays. It applies at once and for free; a new version also gets its number of
+   frames from it.
+3. **Draw a new version**: write **What should look different (optional)** and click **Draw a new version**. The
+   frame count and the cost are shown next to the button; **Drawn by … · change** picks the **Image provider** and
+   **Image model** as when hatching. One animation is drawn at a time; the others wait until it is done.
+4. Compare **Now** and **New**, then **Use the new one** (the pet plays it at once) or **Discard**. **Draw again**
+   tries once more. Animations with a new version are marked *new* in the list.
+5. **Apply and close** saves every new version you did not discard; **Close (keeps drawing)** lets a running drawing
+   finish. **Back to the original** drops a longer version, and **Restore previous look** undoes the last repair.
+
+A longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn in several images
+(about one per six frames), all at one size, so the pet does not grow or shrink while it plays.
 
 ## Generate moods
 
@@ -183,6 +231,21 @@ instead; it works for any pet, also one from the Petdex. Each mood shows *free a
 missing ones** ticks every mood without its own animation. Drawing is paid (one image per mood, the cost is shown).
 Each finished mood is saved at once, and **Close (keep drawing)** lets the drawing run on. **Remove** on a mood goes
 back to the free adjustment.
+
+## Pet dialogs in their own window
+
+**Hatch a pet**, **Repair animations** and **Generate moods** take a while. Move one into a window of its own with
+**Open in a new window** (the window icon in its header) or the palette's *Pet: hatch a new one in a new window…*,
+*Pet: repair animations in a new window…* and *Pet: generate moods in a new window…*, and keep working in the main
+window. Nothing is lost on the way: drafts, notes and new animations you have not decided on yet stay.
+
+- ✕ closes only the window; the drawing goes on in the main window. When it ends, the bell says so (for example
+  *Repair animations: done*); a click shows the result.
+- **Back to the main window** (dock icon in the window's header) shows the dialog in the main window again.
+- The *n in windows* chip in the main window shows what each window is doing (*Drawing drafts 2/4*, *New animations to
+  decide: 2*); a click brings it up.
+
+More about dialog windows: [Everything in Kyllene](features.md#dialogs-in-their-own-window).
 
 ## On your other computers
 
@@ -194,10 +257,11 @@ mood stay on each computer.
 ## Palette commands and shortcuts
 
 `Ctrl+K` offers *Pet…*, *Pet: show* / *Pet: hide*, *Pet: into its own window* / *Pet: back into the app window*,
-*Pet: wander the window* / *Pet: stop wandering*, *Pet: hatch a new one…*, *Pet: repair animations…* (hatched pets)
-and *Pet: generate moods…*. Settings › Shortcuts has a **Pet** group: give choosing the pet, show / hide, its own
-window and hatching a key of your own (**Set**); the mouse actions (Shift+click, click, double-click, Alt + wheel) are
-listed there too.
+*Pet: wander the window* / *Pet: stop wandering*, *Pet: line history…*, *Pet: hatch a new one…* / *Pet: hatch a new
+one in a new window…*, *Pet: repair animations…* / *Pet: repair animations in a new window…* (hatched pets) and
+*Pet: generate moods…* / *Pet: generate moods in a new window…*. Settings › Shortcuts has a **Pet** group: give
+choosing the pet, show / hide, its own window, hatching (also in its own window) and the line history a key of your
+own (**Set**); the mouse actions (Shift+click, click, double-click, Alt + wheel) are listed there too.
 
 ## Troubleshooting
 

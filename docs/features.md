@@ -9,6 +9,7 @@ searches your conversations, tasklists, Kanban cards, project files and memory.
 [Writing a message](#the-message-box-and-commands) · [Attachments](#attachments) ·
 [Prompt templates](#prompt-templates) · [Continue later](#continue-later-later) · [Bookmarks](#bookmarks-and-pins) ·
 [Compare models](#compare-models) · [Choosing a model](#choosing-a-model) · [Windows and layout](#windows-and-layout) ·
+[Dialogs in their own window](#dialogs-in-their-own-window) ·
 [Left menu](#left-menu-and-navigation) · [Top menu](#top-menu) · [Palette and search](#palette-and-search) ·
 [Overview](#overview-today-and-timeline) · [Projects](#projects) · [Kanban](#kanban) ·
 [Agents and rooms](#agents-rooms-and-delegated-agents) · [Coding agents](#coding-agents) · [Widgets](#widgets) ·
@@ -119,6 +120,7 @@ Let a conversation continue by itself later, even with the app closed (while the
 | Feature | What it is for | Where |
 |---|---|---|
 | Model comparison | Send one prompt to 2–4 models side by side (read-only: web and images only), then continue with the best answer. | `/compare`, palette *Compare models* |
+| Comparison in its own window | Once the comparison runs, move it into a window of its own and keep working in the main window; follow-up prompts, *Stop* and the winner work there too. | *Open in a new window* in the comparison's header ([dialog windows](#dialogs-in-their-own-window)) |
 
 ## Choosing a model
 
@@ -140,6 +142,22 @@ Let a conversation continue by itself later, even with the app closed (while the
 | Right panel | Widgets, an opened file, project outputs, the Git panel or the agent's browser: one at a time. | Right side of the window; see [Widgets](#widgets) and [Projects](#projects) |
 | Layouts | Saved arrangements of the whole app: which parts show where (menus, bars, widgets); switch between them. | *Layout: presets, edit, new* in the top bar, palette *Edit layout* / *New layout* / *Layout: Default* (one command per layout, *Layout: name*) |
 | Edit layout | Hide (eye) or drag (grip) any part: status bar parts, toolbar buttons, widgets, top-menu widgets. | Palette *Edit layout*; `Esc` finishes |
+
+## Dialogs in their own window
+
+Many dialogs can leave the main window and live in a window of their own, for example on a second monitor, while
+you keep working in the main window. The work itself (a hatch, a drawing, a Hermes update, a transcription) keeps
+running in the main window; the dialog window only shows it and sends your clicks there.
+
+| Feature | What it is for | Where |
+|---|---|---|
+| Open a dialog in a new window | Moves the open dialog into its own window with everything you typed or picked. Dialogs that can do this: *Hatch a pet*, *Repair animations*, *Generate moods*, *Transcribe a recording*, *Delegated agent's progress*, Hermes › *System*, the model comparison, Loops › *Runs*, the Kanban board with the card detail, *Agent detail*, *Settings* and *Kyllene help*. | *Open in a new window* (the window icon left of ✕ in the dialog's header); in Hermes only on the *System* tab, in Loops only on the *Runs* tab |
+| Palette commands | Open a dialog straight in its own window (an existing one is only brought up). Each one has an editable row in [Settings › Shortcuts](settings.md#shortcuts), except the two repair commands, which act on the pet shown at that moment. | Palette *Pet: hatch a new one in a new window…*, *Pet: repair animations in a new window…*, *Pet: generate moods in a new window…*, *Transcribe a recording in a new window…*, *Hermes › System in a new window…*, *Loops › runs in a new window…*, *Kanban in a new window…* |
+| The *n in windows* chip | Lists every conversation and dialog in its own window; a dialog row shows its title and what it is doing (*Drawing drafts 2/4*, *Updating Hermes…*, *Running: 1*); a click brings that window up. | The *n in windows* chip in the main window › *Show the window* |
+| Back to the main window | Shows the dialog in the main window again, in the same state, and closes its window. | *Back to the main window* (dock icon) in the dialog window's header |
+| Closing a dialog window | ✕ closes only the window: a running job goes on in the main window. When it ends, one notice in the bell (and a desktop notification when Kyllene is not focused) says so, for example *Repair animations: done*; a click shows the result. `Esc` and a click beside the dialog do not close a dialog window. | ✕ of the window; the dialog's own *Cancel* stops the job |
+| Opening it again | Opening a dialog that already has a window (from a menu, the bell or the palette) only brings that window up; there is never a second copy in the main window. | Automatic |
+| Size | Each kind of dialog window remembers its size on this computer. Dialog windows do not reopen after an app restart; a job that still runs shows in its dialog and can be moved into a window again. | Automatic |
 
 ## Left menu and navigation
 
@@ -223,6 +241,7 @@ Hand work to agents as cards; they run in the background, ask when stuck, and yo
 | Process with a Hermes agent | Pick a card and hand it to an agent. | Palette *Process a card with a Hermes agent…* |
 | Review | Let another agent review a finished card. | Palette *Review a card with …* |
 | Clean up | Delete archived cards older than a set age. | *Archived* column header, palette *Kanban: clean up the archive* ([guide](kanban.md#old-cards)) |
+| Board in its own window | The board and the card detail in a window of their own; starting agents and moving a card to another board stay in the main window (*Open the card in the main window*). | *Open in a new window* in the board's header, palette *Kanban in a new window…* ([guide](kanban.md#the-board-in-its-own-window)) |
 
 ## Agents, rooms and delegated agents
 
@@ -230,12 +249,13 @@ Hand work to agents as cards; they run in the background, ask when stuck, and yo
 |---|---|---|
 | Agents | Hermes profiles with their own model, personality, skills, memory and cron jobs, grouped in categories. | Left menu › *Agents*, Top menu › Agents |
 | New agent | A wizard: name, purpose, personality, groups. | Top menu › Agents › *New agent*, palette *New agent*; details: [Hermes › Profiles](hermes.md#profiles) |
-| Agent window | *Basics*, *Skills*, *Memory*, *Cron*, *Groups*, *Project*, *Look*, *Calls*. | *Agent settings* next to an agent in the left menu, Top menu › Agents › *Manage agents* |
+| Agent window | *Basics* (model and its own *Thinking* level), *Skills*, *Memory*, *Cron*, *Groups*, *Project*, *Look*, *Calls*. Can move into its own window ([dialog windows](#dialogs-in-their-own-window)). | *Agent settings* next to an agent in the left menu, Top menu › Agents › *Manage agents* |
+| Thinking per agent | How hard this agent's model thinks in its new conversations; *Hermes default* removes its own level. Agents without their own level do not take over the level from Settings › Models. | Agent window › *Basics* › *Thinking*; also Hermes › *Profiles* ([guide](hermes.md#profiles)) |
 | Categories | Fold agents into categories in the menus; drag a category header to reorder. | *Categories…* on an agent |
 | Rooms | A named room with 2–6 agents: everyone answers your message and they may discuss; `@name` addresses one. | Left menu › *Rooms*, palette *Agent rooms* / *New room* |
 | Quick room | Just pick agents and write; keep it as a named room later. | Top menu › Agents › Rooms › *Quick room*, palette *Quick room* |
 | Agent calls | Which agent asked which, and what. | Top menu › Agents › *Agent calls* |
-| Delegated agents | When Hermes delegates work to sub-agents, each shows as a card in the thread with its state, tools and result; send it a message while it runs. | In the thread |
+| Delegated agents | When Hermes delegates work to sub-agents, each shows as a card in the thread with its state, tools and result; send it a message while it runs. Its progress can move into its own window and keeps updating there. | In the thread; *Open in a new window* in the agent's progress dialog |
 
 ## Coding agents
 
@@ -250,6 +270,7 @@ Claude Code and OpenAI Codex inside the app, with approvals, their slash command
 | Remote Control | Continue a Claude Code conversation on claude.ai or your phone. | Palette *Remote Control: continue this conversation on claude.ai / phone* / *Remote Control: turn off* |
 | Setup | What each agent needs (installed, signed in, provider) and its limits. | [Settings › Coding agents](settings.md#coding-agents), palette *Coding agents: status, install and sign-in* |
 | Loops | Unattended workflows that run in rounds (even with the app closed): steps with Claude Code, Codex, a Hermes agent or a shell command, conditions, safety limits. | Project menu › *Loops*, palette *Loops: workflow editor* / *Loops: running loops* ([guide](coding-agents.md#loops)) |
+| Loop runs in their own window | The *Runs* tab (running and finished loops with their log) in a window of its own; pause, continue, answer and stop work there too. | *Open in a new window* on the *Runs* tab, palette *Loops › runs in a new window…* |
 
 ## Widgets
 
@@ -276,7 +297,7 @@ Guide: [Voice](voice.md).
 | Voice modes | *Manual*, *Semi-automatic* (answers are read), *Automatic* (a pause sends, hands-free). | The *Voice* chip under the message box, palette *Voice: Manual* / *Voice: Semi-automatic* / *Voice: Automatic* ([guide](voice.md#voice-modes)) |
 | Conversation mode | Speak, pause to send, hear the answer; say *stop* to finish. | Palette *Conversation mode* |
 | Wake word | Start listening with a spoken phrase (Hermes' local detector). | Palette *Toggle wake word*, [Settings › Voice](settings.md#voice) |
-| Transcribe a recording | A meeting recording to text with speakers. | Top menu › Widgets › *Transcribe a recording* ([guide](voice.md#transcribe-a-recording)) |
+| Transcribe a recording | A meeting recording to text with speakers; the window can move out of the main window while it transcribes. | Top menu › Widgets › *Transcribe a recording*, palette *Transcribe a recording in a new window…* ([guide](voice.md#transcribe-a-recording)) |
 | Settings and test | Speech model, voice, microphone and speaker test. | Palette *Settings › Speech to text*, *Settings › Voice*, *Settings › Microphone and speaker test* |
 
 ## Quick capture
@@ -298,16 +319,17 @@ speech bubble and answer when you talk to it by name. Guide: [Pet](pet.md).
 |---|---|---|
 | Show or hide the pet | Turn the pet on or off (in the terminal too) and set its size. | [Settings › Pet](settings.md#pet) › *Show the pet*, `Alt` + wheel over the pet, palette *Pet: show* / *Pet: hide* ([guide](pet.md#turn-it-on-and-off)) |
 | Pick a pet | Adopt one from the public Petdex gallery and switch between your pets. | Settings › Pet › *Petdex* › *Adopt*, *Your pets* › *Show*; palette *Pet…* ([guide](pet.md#install-and-pick-a-pet)) |
-| Hatch a new pet | AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first). | Settings › Pet › *Hatch a new one…*, palette *Pet: hatch a new one…* ([guide](pet.md#hatch-your-own-pet-with-ai)) |
+| Hatch a new pet | AI draws a pet from your description: pick the image provider and model, four drafts, pick one, hatch (paid image generation, the cost is shown first). | Settings › Pet › *Hatch a new one…*, palette *Pet: hatch a new one…* / *Pet: hatch a new one in a new window…* ([guide](pet.md#hatch-your-own-pet-with-ai)) |
 | Move and wander | Drag it anywhere (it never covers text), double-click returns it to its corner; let it stroll the window while the agent rests. | On the pet; Settings › Pet › *Let the pet wander the window*, palette *Pet: wander the window* / *Pet: stop wandering* ([guide](pet.md#move-the-pet)) |
 | Pet in its own window | The pet on the desktop, on top of other apps: click = a message to the last conversation, double-click hides / shows Kyllene, a bubble says *Working…* / *Your turn*, a letter shows answers that finished while you were away. | `Shift`+click on the pet, palette *Pet: into its own window* / *Pet: back into the app window* ([guide](pet.md#the-pet-in-its-own-window)) |
 | Mood | The pet's mood follows how the work goes (grumpy after failures, happy after successes, sleepy when quiet), with a short mark over its head; hearts when you say thanks. | Settings › Pet shows the current *Mood* ([guide](pet.md#mood)) |
-| Comments | Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages. | Settings › Pet › *Comments* ([guide](pet.md#comments-in-a-speech-bubble)) |
+| Comments | Short lines in a speech bubble about failures, questions and finished turns: prepared (free) or written by AI, in your language, optionally also on your own messages. The bubble appears beside the pet and stays put; drag it anywhere. | Settings › Pet › *Comments* ([guide](pet.md#comments-in-a-speech-bubble)) |
+| Line history | Every line the pet said in this run of the app, with what it reacted to, by group (*Talking to it*, *Your messages*, *Agent's run*, *Out of boredom*). | Hover the pet › *Line history (n)*, right-click the pet › *Line history…*, palette *Pet: line history…* ([guide](pet.md#line-history)) |
 | Talk to the pet | Write to it by name (*Boba, what do you think?*) and it answers in its bubble. | In any conversation ([guide](pet.md#talk-to-the-pet-by-name)) |
 | Personality | The pet's name and nature, written by you or suggested by AI; they shape its comments. | The pet's ⋯ › *Personality…* in Settings › Pet, or right-click the pet ([guide](pet.md#personality)) |
-| Pet brain | *No memory*, *Memory* (a memory note and small skills), *Agent* (its own Hermes profile with tools) or *Combination*. | Settings › Pet › *Pet brain* ([guide](pet.md#pet-brain)) |
-| Repair animations | Redraw only the broken animations of a hatched pet, with an instruction per animation; set how long each animation plays (1–8 s, free). | The pet's ⋯ › *Repair animations…*, right-click the pet, palette *Pet: repair animations…*; *Animation length* in Settings › Pet ([guide](pet.md#repair-animations-and-animation-length)) |
-| Moods of its own | Draw the pet's own animation for chosen moods (any pet; paid, one image per mood). | The pet's ⋯ › *Generate moods…*, right-click the pet, palette *Pet: generate moods…* ([guide](pet.md#generate-moods)) |
+| Pet brain | *No memory*, *Memory* (a memory note and small skills), *Agent* (its own Hermes profile with tools) or *Combination*. With its own agent, the pet's memory, skills and personality are the agent's. | Settings › Pet › *Pet brain* ([guide](pet.md#pet-brain)) |
+| Repair animations | For a hatched pet: each animation with what the pet plays now, when it plays and how long; set its length (free) or draw a new version with an instruction, then *Use the new one* or *Discard*. | The pet's ⋯ › *Repair animations…*, right-click the pet, palette *Pet: repair animations…* / *Pet: repair animations in a new window…*; *Animation length* in Settings › Pet ([guide](pet.md#repair-animations-and-animation-length)) |
+| Moods of its own | Draw the pet's own animation for chosen moods (any pet; paid, one image per mood). | The pet's ⋯ › *Generate moods…*, right-click the pet, palette *Pet: generate moods…* / *Pet: generate moods in a new window…* ([guide](pet.md#generate-moods)) |
 | On other computers | The shown pet, its personality, brain and own moods follow you with sync; a hatched pet is never hatched twice. | [Sync between computers](sync.md) ([guide](pet.md#on-your-other-computers)) |
 
 ## Servers and Gateway
@@ -375,7 +397,7 @@ The **Hermes** window manages Hermes itself without a terminal. Guide: [Manage H
 | Cron jobs | *Hermes › Cron jobs*, *Hermes › New cron job from a template* | [Cron jobs](hermes.md#cron-jobs) |
 | Profiles | *Hermes › Profiles*, *Hermes › New profile (wizard)*, *Hermes › Import profile*, *Hermes › Export profile* | [Profiles](hermes.md#profiles) |
 | Models & providers | *Hermes › Models & providers* | [Models & providers](hermes.md#models--providers) |
-| Keys, Memory, Logs, System, Config | *Hermes › Keys*, *Hermes › Memory*, *Hermes › Logs*, *Hermes › System*, *Hermes › Config* | [Keys](hermes.md#keys) · [Memory](hermes.md#memory) · [Logs](hermes.md#logs) · [System](hermes.md#system) · [Config](hermes.md#config) |
+| Keys, Memory, Logs, System, Config | *Hermes › Keys*, *Hermes › Memory*, *Hermes › Logs*, *Hermes › System*, *Hermes › System in a new window…*, *Hermes › Config* | [Keys](hermes.md#keys) · [Memory](hermes.md#memory) · [Logs](hermes.md#logs) · [System](hermes.md#system) · [Config](hermes.md#config) |
 | Hooks | *Hermes › Hooks*, *Hermes › Hooks › Gateway*, *Hermes › Hooks › Outbound webhooks* | [Hooks](hermes.md#hooks) |
 | Channels, Webhooks | *Hermes › Channels*, *Hermes › Webhooks* | [Channels](hermes.md#channels) · [Webhooks](hermes.md#webhooks) |
 | Statistics, Achievements, Documentation | *Hermes › Statistics*, *Hermes › Achievements*, *Hermes › Documentation* | [Statistics](hermes.md#statistics) · [Achievements](hermes.md#achievements) · [Documentation](hermes.md#documentation) |
@@ -383,16 +405,18 @@ The **Hermes** window manages Hermes itself without a terminal. Guide: [Manage H
 Open the window with `Ctrl+Shift+H`, Top menu › Hermes › *Open management*, or palette *Hermes management*. When the
 Hermes engine stops, Kyllene restarts it by itself and reconnects the conversations; palette *Start again* restarts
 it by hand. After every Hermes update Kyllene checks that everything it uses still works and tells you if not.
+Update, doctor and gateway restart run one at a time: reopening the window shows the action that is running, with
+its log.
 
 ## Updates, help and first start
 
 | Feature | What it is for | Where |
 |---|---|---|
 | Updates | Kyllene checks once a day; a new version opens *What's new* and *Update and restart*. | Top menu › Help › *Check for updates*, palette *Check for updates* (in the released app) |
-| Documentation and What's new | These guides and the release notes of every version. | Top menu › Help, palette *Help › Documentation* / *Help › What's new* |
+| Documentation and What's new | These guides and the release notes of every version; the help can move into its own window. | Top menu › Help, palette *Help › Documentation* / *Help › What's new* |
 | Report a bug, suggest an improvement | Forms on GitHub. | Top menu › Help, palette *Help › Report a bug* / *Help › Suggest an improvement* |
 | About | Version and the Hermes versions it was tested with. | Top menu › Help › *About*, palette *About* ([Settings › About](settings.md#about)) |
 | Support development | A tip on Ko-fi, if you like the app. | Top menu › Help › *Support development ☕*, palette *Help › Support development ☕* |
-| Settings | Everything Kyllene itself remembers. | The gear in the top bar, `Ctrl+,`, palette *Settings* ([guide](settings.md)) |
+| Settings | Everything Kyllene itself remembers; can move into its own window (some tabs then point back to the main window). | The gear in the top bar, `Ctrl+,`, palette *Settings* ([guide](settings.md)) |
 | First-run guide | A welcome window on the first start: checks Hermes, helps you connect a model and create a first project, then a short tour that highlights each part of the window. Every step can be skipped. | Opens by itself on a fresh install; Top menu › Help › *First-run guide*, palette *Help › First-run guide* |
-| First start | Without Hermes, Kyllene offers *Install Hermes Agent*; without a model, *Connect a model*. | Shown by itself ([troubleshooting](README.md#troubleshooting)) |
+| First start | Without Hermes, Kyllene offers *Install Hermes Agent*; without a model, *Connect a model*. When Hermes is installed but does not come up, Kyllene tries twice more and then shows *Hermes could not be started* with the details. | Shown by itself ([troubleshooting](README.md#troubleshooting)) |

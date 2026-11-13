@@ -50,6 +50,11 @@ The **Transcribe a recording** widget turns an audio file (a meeting, an intervi
 conversation with a summary. Switch it on in the **Widgets** menu; speaker detection is set up in [Settings › Speech
 to text](settings.md#speech-to-text).
 
+A long recording takes a while: **Open in a new window** in the widget's header (or `Ctrl+K` › *Transcribe a
+recording in a new window…*) moves it into a window of its own while it transcribes; you can drop a recording onto
+that window too. ✕ closes only the window and the transcription goes on in the main window, which tells you when it
+is done; **Back to the main window** returns it.
+
 ## Test your microphone
 
 [Settings › Voice](settings.md#voice) › **Say something** records five seconds and shows the transcript (never sent

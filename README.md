@@ -85,6 +85,8 @@ The highlights below; every feature with where to find it: **[Everything in Kyll
 - **Activity panel** shows every tool call as it happens: what ran, how long it took, what it returned.
 - The agent asks with **clickable choices**; risky commands wait for your OK; file writes can be reviewed as a diff.
 - **Many conversations at once**: tabs, a grid, free windows, or a conversation in its own window.
+- **Dialogs in their own window**: move Kanban, Settings, Hermes › System, a model comparison, a pet hatch and more
+  out of the main window (onto a second monitor, say); the work keeps running and the bell tells you when it is done.
 - **Search everything** with `Ctrl+K`: conversations, projects, files, tasklists and every command.
 - **Quick capture**: a global shortcut takes a screenshot, you add a question, the answer appears in a small window.
 - Attachments and pasted images, prompt templates, bookmarks, export, `/later` (continue at a set time or when a background job ends).
@@ -94,7 +96,7 @@ The highlights below; every feature with where to find it: **[Everything in Kyll
 
 - An animated **pet** in the corner shows what the agent is doing: working, thinking, waiting for you, done or failed. One glance, no reading.
 - Pick one from the public **Petdex** gallery, or **hatch your own** with AI from a description (with your image provider; the cost is shown first). Repair single animations or draw its own animations for every mood.
-- It has a **mood** that follows how the work goes, **comments** in a speech bubble (free prepared lines or AI lines), a personality, and answers when you **talk to it by name**. Give it a memory and skills, or make it a full Hermes agent.
+- It has a **mood** that follows how the work goes, **comments** in a speech bubble you can drag anywhere (free prepared lines or AI lines) with a **line history** of what each line reacted to, a personality, and answers when you **talk to it by name**. Give it a memory and skills, or make it a full Hermes agent that shares one memory, skills and personality with the pet.
 - **Shift+click** pops it out onto the desktop: it tells you when an agent needs you, leaves a letter for answers that finished while you were away, and a click sends a message to your last conversation.
 - With sync on it follows you to your other computers. More: **[Pet](docs/pet.md)**.
 
@@ -114,7 +116,7 @@ The highlights below; every feature with where to find it: **[Everything in Kyll
 
 ### Agents
 
-- Hermes profiles as **agents** with their own model, memory and personality; group them in categories and rooms.
+- Hermes profiles as **agents** with their own model, thinking level, memory and personality; group them in categories and rooms.
 - **Claude Code and Codex** run inside the app with approvals, slash commands and their history.
 - Delegated sub-agents and background processes are visible in the conversation while they run.
 
@@ -199,7 +201,7 @@ cannot work with.
 <details>
 <summary>Other options: a specific version, manual download, uninstall</summary>
 
-- A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.2-beta`
+- A specific version: `curl -fsSL https://raw.githubusercontent.com/cpoint-eu/kyllene-releases/main/install.sh | bash -s -- --version v0.0.3-beta`
 - An AppImage you already downloaded: `bash install.sh --appimage ~/Downloads/Kyllene_0.0.1-beta_amd64.AppImage`
 - Without the installer: download `Kyllene_<version>_amd64.AppImage` from the
   [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest), `chmod +x` it and run it.

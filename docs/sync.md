@@ -34,7 +34,8 @@ computer and connect the providers there.
 3. On every other computer, install Kyllene and choose **the same** folder, repo or cloud account.
 
 Each computer writes only its own file (`kyllene-sync-<computer>.json`), so two computers never overwrite each
-other; for the same setting the newest change wins. **Sync now** syncs at once; *Devices* lists the computers and
+other; for the same setting the newest change wins. **Sync now** syncs at once (pressed while a sync is already running, it runs one more round right after, so a change you
+have just made goes too); *Devices* lists the computers and
 when each last changed something.
 
 ## Widgets from other computers

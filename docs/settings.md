@@ -7,6 +7,13 @@ tab you used last.
 Settings that belong to **Hermes** (skills, MCP servers, keys, cron jobs, Hermes' own config) are not here but in the
 **Hermes** window: see [Manage Hermes in Kyllene](hermes.md).
 
+**Settings in its own window:** **Open in a new window** in the dialog's header moves Settings into a window of its
+own. There the tabs **Appearance**, **Notifications**, **Shortcuts**, **Prompt templates**, **Servers** and **About**
+work as usual, and a change of the theme or the language shows in both windows at once. The other tabs use what runs
+in the main window (conversations, projects, tasks); in the window they say so and offer **Open in the main window**,
+which shows that tab there. ✕ closes only the window; **Back to the main window** returns Settings to the main window
+on the same tab. More: [dialogs in their own window](features.md#dialogs-in-their-own-window).
+
 Some choices are kept **only on this computer** (folders, devices, microphone), others **travel to your other
 computers** when [sync](sync.md) is on. Each section below says which.
 
@@ -35,6 +42,7 @@ Where new projects go and how they are stored. More about projects: [Projects an
 
 | Option | Default | What it does / when to change it |
 |---|---|---|
+| **App language** | Czech on a Czech system, otherwise English | English or Czech, the same choice as `EN` / `CS` in the [status bar](#the-status-bar); every open window of the app follows it. |
 | **Theme** | built-in look (*Navy*) | The list of looks. **New theme** starts the theme editor (from the current look or a preset; nothing is saved before *Create*). **Import…** loads a theme exported from Kyllene as `.json`. **Restore default look** switches back to the built-in look in both modes; your own themes stay. |
 | **Open Activity in the thread** | *In panel* | Where a click on a turn's Activity row opens the list of tool calls: *In panel* = the Activity panel on the side, *In place* = unfolded right in the conversation. |
 | **Open the agent's browser by itself** | on | The first time a turn works in a browser, the right panel switches to the agent's browser so you can watch. Off = open it yourself with the globe next to the turn's Activity row or from the palette. |
@@ -53,7 +61,7 @@ the CLI and TUI show the same.
 | **Hatch a new one…** | AI draws a new pet from your description (paid image generation; the cost is shown first). |
 | **Let the pet wander the window** | Off by default. The pet strolls along free spots while the agent is at rest. |
 | **Your pets** | Your installed pets: **Show**, and **⋯** › **Rename**, **Personality…**, **Repair animations…** (hatched pets), **Generate moods…**, **Remove**. Under the shown pet: its current **Mood** and **Animation length** (1–8 s per animation, free). |
-| **Pet brain** | **No memory** (default), **Memory**, **Agent** or **Combination**: how much the pet remembers and can do; with Memory its memory note, **What it knows about the user** (off by default) and **Skills**. |
+| **Pet brain** | **No memory** (default), **Memory**, **Agent** or **Combination**: how much the pet remembers and can do; with Memory its memory note, **What it knows about the user** (off by default) and **Skills**. With its own agent (Agent, Combination) **Memory** and **What it knows about you** are the agent's own notes and the skills are copied into the agent ([Pet › Pet brain](pet.md#pet-brain)). |
 | **Comments** | The speech bubble: **Mode** (**Off** / **Prepared lines**, default / **AI lines**), **Model of the lines**, **Longest silence** (default 5 min), **Language**, **Comment on my messages too** (off by default). |
 | **Petdex** | The public gallery: search and **Adopt**. |
 
@@ -72,7 +80,7 @@ composer.
 | **Main model** | what Hermes has (the first provider you connect sets it) | Used by new conversations and scheduled jobs. Agents with their own profile have their own main model. **Change** opens the model picker. |
 | **Backup model** | not set | When the main model fails (outage, rate limit), Hermes switches to this one. Pick one from a different provider. |
 | **Free backup model** | not set | The last resort when the backup fails too; pick a free model so it never costs anything. |
-| **Thinking** | Hermes' default (*Medium*) | How hard the model thinks in every new conversation, and in helper tasks without their own level. One conversation can change it in the composer. |
+| **Thinking** | Hermes' default (*Medium*) | How hard the model thinks in new conversations of the default agent, and in helper tasks without their own level. Other agents do **not** take this level over: without their own level they run on Hermes' default; give an agent its own in its detail › **Basics** › **Thinking** ([Manage Hermes › Profiles](hermes.md#profiles)). One conversation can change it in the composer. |
 | **Provider per model maker** | *Any provider* | When the same models come from several providers (Claude from Anthropic and from OpenRouter, for example), pick the one to use: the others then hide that maker's models in every model list. Saves you from picking the paid route by mistake. Shared across your devices. |
 | **Model classes from benchmarks** | estimated | The picker sorts models into classes. Without a key the class is estimated from the model name and price; with a free [Artificial Analysis](https://artificialanalysis.ai) API key it comes from benchmarks. The key goes into Hermes' `.env`; Kyllene does not keep it. |
 
@@ -216,7 +224,8 @@ on). Files that cannot be used are listed with the reason.
 
 Every keyboard shortcut of the app, grouped by where it works. Most are fixed; the dictation keys can be changed
 here (**Change**), the [pet](pet.md#palette-commands-and-shortcuts) commands (choose, show / hide, its own window,
-hatch) get a key of your own here (**Set**), widget shortcuts in the widget's ⋯ › *Widget settings*, the system-wide quick-capture keys in your
+hatch, line history) and the commands that open a dialog in its own window (Hermes › System, Loops › runs, Kanban,
+hatching a pet, transcribing a recording) get a key of your own here (**Set**), widget shortcuts in the widget's ⋯ › *Widget settings*, the system-wide quick-capture keys in your
 desktop's settings. The full list: [Keyboard shortcuts](shortcuts.md).
 
 ## Servers

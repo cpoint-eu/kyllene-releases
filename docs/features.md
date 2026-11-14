@@ -181,7 +181,7 @@ running in the main window; the dialog window only shows it and sends your click
 
 | Menu | What is in it | Where |
 |---|---|---|
-| Work | *Conversations*, *New project*, *Kanban*, *Automation*, your first projects, the last conversation. | Top bar › *Work*, palette *Menu: Work* |
+| Work | *Conversations*, *New project*, *Kanban* (with the cards that wait for your answer) and *Automation* (next run or failed jobs), then live sections you can fold: *Waiting for you* (conversations and Kanban cards that wait for an answer), *Running now* (working conversations, *Running Kanban cards: n*, *Running loops: n*), *Projects* (all of them, newest activity first, with open tasklist items and **+** for a new conversation; *Archived projects (n)* opens Settings › Projects), *Projects on servers* and *Prompt templates*; at the bottom the last conversation. | Top bar › *Work*, palette *Menu: Work* |
 | Agents | Tab *Agents*: *New agent*, *Agent calls* (who asked whom and what), your agents by category (a click starts a conversation), *Manage agents*. Tab *Rooms*: your rooms, *New room*, *Quick room*, *All rooms (1)*. | Top bar › *Agents*, palette *Menu: Agents* |
 | Hermes | *Skills*, *MCP servers*, *Plugins*, *Models & providers*, *Keys*, *Cron jobs*, *Memory*, *Logs*, *System*, *Open management*. See [Managing Hermes](#managing-hermes). | Top bar › *Hermes*, palette *Menu: Hermes* |
 | Widgets | *Overview* and every widget by group; a click shows a widget or puts a closed one back. | Top bar › *Widgets*; see [Widgets](#widgets) |
@@ -329,7 +329,7 @@ speech bubble and answer when you talk to it by name. Guide: [Pet](pet.md).
 | Personality | The pet's name and nature, written by you or suggested by AI; they shape its comments. | The pet's ⋯ › *Personality…* in Settings › Pet, or right-click the pet ([guide](pet.md#personality)) |
 | Pet brain | *No memory*, *Memory* (a memory note and small skills), *Agent* (its own Hermes profile with tools) or *Combination*. With its own agent, the pet's memory, skills and personality are the agent's. | Settings › Pet › *Pet brain* ([guide](pet.md#pet-brain)) |
 | Repair animations | For a hatched pet: each animation with what the pet plays now, when it plays and how long; set its length (free) or draw a new version with an instruction, then *Use the new one* or *Discard*. | The pet's ⋯ › *Repair animations…*, right-click the pet, palette *Pet: repair animations…* / *Pet: repair animations in a new window…*; *Animation length* in Settings › Pet ([guide](pet.md#repair-animations-and-animation-length)) |
-| Moods of its own | Draw the pet's own animation for chosen moods (any pet; paid, one image per mood). | The pet's ⋯ › *Generate moods…*, right-click the pet, palette *Pet: generate moods…* / *Pet: generate moods in a new window…* ([guide](pet.md#generate-moods)) |
+| Moods of its own | Draw the pet's own animation for a mood (any pet; paid, one image per mood): pick a mood, say what should look different, set its length, compare *Now* and *New*, then *Use the new one* or *Discard*; nothing changes before you use it. *Back to the original* returns a mood to the free adjustment. | The pet's ⋯ › *Generate moods…*, right-click the pet, palette *Pet: generate moods…* / *Pet: generate moods in a new window…* ([guide](pet.md#generate-moods)) |
 | On other computers | The shown pet, its personality, brain and own moods follow you with sync; a hatched pet is never hatched twice. | [Sync between computers](sync.md) ([guide](pet.md#on-your-other-computers)) |
 
 ## Servers and Gateway
@@ -355,7 +355,7 @@ speech bubble and answer when you talk to it by name. Guide: [Pet](pet.md).
 
 | Feature | What it is for | Where |
 |---|---|---|
-| Bell | Everything that needs you or finished: approvals, questions, finished answers, Kanban, widgets, updates. *All* / *Unread*, *Mark all as read*, *Remove read notifications*; a click opens the place. | The bell in the top bar, `Ctrl+Shift+N`, palette *Notifications* / *Mark all notifications as read* |
+| Bell | Everything that needs you or finished: approvals, questions, finished answers, Kanban, widgets, updates; the list stays after a restart. *All* / *Unread*, *Mark all as read*, *Remove read notifications*; a click opens the place. | The bell in the top bar, `Ctrl+Shift+N`, palette *Notifications* / *Mark all notifications as read* |
 | Read notifications aloud | The first line of new notifications is read while the app is visible. | Switch in the bell |
 | System notifications | Desktop notifications while the window is not focused, per kind. | [Settings › Notifications](settings.md#notifications), palette *Settings › Notifications* |
 
@@ -412,7 +412,7 @@ its log.
 
 | Feature | What it is for | Where |
 |---|---|---|
-| Updates | Kyllene checks once a day; a new version opens *What's new* and *Update and restart*. | Top menu › Help › *Check for updates*, palette *Check for updates* (in the released app) |
+| Updates | Kyllene checks once a day; a new version opens *What's new* and *Update and restart*. A `.deb` / `.rpm` install asks for your password; on Windows the `.msi` update asks for the administrator's OK, then Kyllene closes, updates and starts again. | Top menu › Help › *Check for updates*, palette *Check for updates* (in the released app) |
 | Documentation and What's new | These guides and the release notes of every version; the help can move into its own window. | Top menu › Help, palette *Help › Documentation* / *Help › What's new* |
 | Report a bug, suggest an improvement | Forms on GitHub. | Top menu › Help, palette *Help › Report a bug* / *Help › Suggest an improvement* |
 | About | Version and the Hermes versions it was tested with. | Top menu › Help › *About*, palette *About* ([Settings › About](settings.md#about)) |

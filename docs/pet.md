@@ -138,8 +138,10 @@ conversation. The tabs at the top sort the lines into **Talking to it**, **Your 
 **Out of boredom** (**All** shows everything); **Newer** and **Older** page through them.
 
 Open it by hovering the pet › **Line history (n)** (also on the popped-out pet), with a right-click on the pet ›
-**Line history…**, or with `Ctrl+K` › *Pet: line history…*. The history covers only this run of Kyllene on this
-computer.
+**Line history…**, or with `Ctrl+K` › *Pet: line history…*. This computer's lines cover only this run of Kyllene.
+With [sync](sync.md) on, a pet with a memory or its own agent also shows the last 10 lines from each of your other
+computers (only their text, time and *On …* the computer): they join **All** by time and have their own tab
+**Other devices**.
 
 ## Talk to the pet by name
 
@@ -226,11 +228,23 @@ A longer animation gets enough frames for its length (about one per 0.3 s, up to
 ## Generate moods
 
 Every mood is played for free by adjusting a standard animation. **Generate moods…** (the pet's **⋯** menu, a
-right-click on the pet, or `Ctrl+K` › *Pet: generate moods…*) draws the pet's own animation for the moods you pick
-instead; it works for any pet, also one from the Petdex. Each mood shows *free adjustment* or *own*; **Pick the
-missing ones** ticks every mood without its own animation. Drawing is paid (one image per mood, the cost is shown).
-Each finished mood is saved at once, and **Close (keep drawing)** lets the drawing run on. **Remove** on a mood goes
-back to the free adjustment.
+right-click on the pet, or `Ctrl+K` › *Pet: generate moods…*) draws the pet's own animation for a mood instead; it
+works for any pet, also one from the Petdex. The dialog works like [Repair animations](#repair-animations-and-animation-length):
+
+1. **Pick a mood** in the list on the left; each one shows *free adjustment* or *own*, and the top says how many
+   moods have their own animation (*Own moods: 2 / 21*, for example). The detail on the right plays **Now**, exactly
+   what the pet plays in that mood (*free adjustment of the idle animation* or *own animation*).
+2. **Length**: how long the mood's animation plays. For an own animation it applies at once and for free; a new
+   version gets its number of frames from it.
+3. **Draw a new version**: write **What should look different (optional)** (up to 500 characters, the counter shows the length) and click
+   **Draw a new version**. The frame count and the cost are shown next to the button (paid, one image per mood);
+   **Drawn by … · change** picks the image provider and model. One mood is drawn at a time; the others wait.
+4. Compare **Now** and **New**, then **Use the new one** (the pet plays it at once) or **Discard**. **Draw again**
+   tries once more. Nothing changes on the pet before you pick **Use the new one**.
+5. **Apply and close** saves every new version you did not discard. Closing the dialog with undecided new versions
+   asks *Discard 2 new moods?*: **Use** saves them, **Discard** drops them, **Back** returns to the dialog.
+6. **Back to the original** on a mood with its own animation drops it: the mood goes back to the free adjustment
+   (free).
 
 ## Pet dialogs in their own window
 

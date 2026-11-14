@@ -139,8 +139,10 @@ konverzaci. Záložky nahoře je třídí na **Rozhovor s ním**, **Na tvé zpr�
 ukáže všechno); **Novější** a **Starší** listují stránkami.
 
 Otevřeš ji tak, že najedeš myší na maskota › **Historie hlášek (n)** (i u maskota na ploše), pravým tlačítkem na
-maskotovi › **Historie hlášek…**, nebo přes `Ctrl+K` › *Maskot: historie hlášek…*. Historie platí jen pro toto
-spuštění Kyllene na tomhle počítači.
+maskotovi › **Historie hlášek…**, nebo přes `Ctrl+K` › *Maskot: historie hlášek…*. Hlášky z tohoto počítače
+pokrývají jen toto spuštění Kyllene. Se zapnutou [synchronizací](sync.md) ukáže maskot s pamětí nebo vlastním
+agentem i posledních 10 hlášek z každého tvého dalšího počítače (jen text, čas a *Na počítači …*): zařadí se časově
+do **Vše** a mají vlastní záložku **Jiné počítače**.
 
 ## Oslovit maskota jménem
 
@@ -226,11 +228,22 @@ Delší animace dostane dost snímků na svou délku (zhruba jeden na 0,3 s, nej
 ## Dogenerovat nálady
 
 Každá nálada se zdarma přehrává úpravou běžné animace. **Dogenerovat nálady…** (nabídka **⋯**, pravé tlačítko na
-maskotovi nebo `Ctrl+K` › *Maskot: dogenerovat nálady…*) místo toho nakreslí vlastní animaci pro nálady, které
-vybereš; jde to u každého maskota, i u toho z Petdexu. U každé nálady vidíš *úprava zdarma* nebo *vlastní*;
-**Vybrat chybějící** zaškrtne všechny nálady bez vlastní animace. Kreslení je placené (jeden obrázek na náladu, cena
-je vidět). Každá hotová nálada se uloží hned a **Zavřít (kreslit dál)** nechá kreslení běžet. **Odebrat** u nálady ji
-vrátí k úpravě zdarma.
+maskotovi nebo `Ctrl+K` › *Maskot: dogenerovat nálady…*) místo toho nakreslí pro náladu vlastní animaci; jde to u
+každého maskota, i u toho z Petdexu. Dialog funguje stejně jako [Opravit animace](#opravit-animace-a-délka-animací):
+
+1. **Vyber náladu** v seznamu vlevo; u každé vidíš *úprava zdarma* nebo *vlastní* a nahoře, kolik nálad má vlastní
+   animaci (třeba *Vlastních nálad: 2 / 21*). Detail vpravo přehrává **Teď**, tedy přesně to, co maskot v té náladě
+   hraje (*úprava klidové animace zdarma* nebo *vlastní animace*).
+2. **Délka**: jak dlouho se animace nálady přehrává. U vlastní animace platí hned a zdarma; nová verze podle ní
+   dostane počet snímků.
+3. **Nakreslit novou verzi**: napiš **Co má vypadat jinak (nepovinné)** (nejvýš 500 znaků, počítadlo ukazuje délku) a klikni
+   na **Nakreslit novou verzi**. Počet snímků a cena jsou vidět vedle tlačítka (placené, jeden obrázek na náladu);
+   **Kreslí … · změnit** vybere poskytovatele a model obrázků. Kreslí se vždy jedna nálada; ostatní počkají.
+4. Porovnej **Teď** a **Nová** a zvol **Použít novou** (maskot ji začne hned hrát) nebo **Zahodit**. **Nakreslit
+   znovu** zkusí ještě jednou. Dokud nezvolíš **Použít novou**, na maskotovi se nic nezmění.
+5. **Použít a zavřít** uloží všechny nové verze, které jsi nezahodil. Když dialog zavíráš s nerozhodnutými novými
+   verzemi, zeptá se *Zahodit 2 nové nálady?*: **Použít** je uloží, **Zahodit** je zahodí, **Zpět** vrátí do dialogu.
+6. **Vrátit původní** u nálady s vlastní animací ji zahodí: nálada se vrátí k úpravě zdarma (zdarma).
 
 ## Dialogy maskota ve vlastním okně
 

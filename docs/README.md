@@ -6,7 +6,7 @@ and [Manage Hermes](hermes.md). Wondering what something is for, or whether Kyll
 
 | Guide | What it covers |
 |---|---|
-| [Install and update](https://cpoint-eu.github.io/kyllene/#install) | Requirements, the one-line installer, `.deb` / `.rpm` packages, automatic updates, uninstall (also [in Czech](https://cpoint-eu.github.io/kyllene/cs/#install)) |
+| [Install and update](https://cpoint-eu.github.io/kyllene/#install) | Requirements, the one-line installer, `.deb` / `.rpm` packages, the Windows beta (`.msi`), automatic updates, uninstall (also [in Czech](https://cpoint-eu.github.io/kyllene/cs/#install)) |
 | [Everything in Kyllene](features.md) | A catalog of every feature by area: what it is for, where you find it (menu, shortcut, palette command) and the guide that explains it; also [dialogs in their own window](features.md#dialogs-in-their-own-window) |
 | [Settings](settings.md) | Every Settings tab: what each option does, its default, and when to change it |
 | [Manage Hermes](hermes.md) | The Hermes window: skills and the hub, MCP servers and tool selection, plugins, cron jobs, profiles, models and providers, keys, memory, logs, system, config, hooks, channels, webhooks, statistics |
@@ -19,7 +19,8 @@ and [Manage Hermes](hermes.md). Wondering what something is for, or whether Kyll
 | [Pet](pet.md) | The animated pet that shows what the agent is doing: pick or hatch one, move it or pop it out onto the desktop, what its states and moods mean, comments and their history, talking to it by name, personality, pet brain, repairing animations, its dialogs in their own window (also [in Czech](pet.cs.md)) |
 | [Keyboard shortcuts](shortcuts.md) | Every shortcut in one list |
 | [Build your own widget](widgets.md) | Cards and windows with your own data: manifest, data script, view, settings, actions, notices, a ready-to-run example |
-| [Troubleshooting](#troubleshooting) | The most common problems on the first start |
+| [Troubleshooting](#troubleshooting) | The most common problems on the first start, also [on Windows](#windows-beta) |
+| [Where your data lives](#where-your-data-lives) | Kyllene's and Hermes' folders on Linux and Windows |
 
 Also on the website [cpoint-eu.github.io/kyllene](https://cpoint-eu.github.io/kyllene/). Missing something?
 [Suggest an improvement](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=idea.yml) and say what you
@@ -43,3 +44,25 @@ were looking for.
 | Kanban cards stay in *Ready* | The Hermes gateway is not running; the board header says *tasks will not run*. Start it (`hermes gateway`) with Kanban dispatch enabled. See [Kanban](kanban.md#boards). |
 | A widget from another computer does not run | Its code waits for your approval on this computer: [Sync between computers](sync.md#widgets-from-other-computers). |
 | Something broke after a Hermes update | Kyllene checks itself after every Hermes update and tells you what does not work; until a new Kyllene is out you can go back to the Hermes version it was tested with (named in the release notes and in [Settings › About](settings.md#about)). |
+
+### Windows (beta)
+
+| Problem | What to do |
+|---|---|
+| *Windows protected your PC* when you open the `.msi` | SmartScreen warns because the installer is not code-signed yet. Click **More info** → **Run anyway**. Download the `.msi` only from the [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest). |
+| The install or an update asks for the administrator's OK | On purpose: Kyllene installs for all users of the PC. An update from the app closes Kyllene, updates it and starts it again by itself; refusing the prompt cancels the update. |
+| *Hermes Agent is missing* | Click **Install Hermes Agent**: the official installer puts Hermes into `%LOCALAPPDATA%\hermes` without administrator rights and brings its own Git and Python; it can take up to about 15 minutes. |
+| Something broke after a Hermes update | On Windows Kyllene does not check itself after a Hermes update yet (on Linux it does). Go back to the Hermes version named in the [release notes](https://github.com/cpoint-eu/kyllene-releases/releases) and [report it](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml). |
+| Dictation, coding agents, sync, the pet or Kanban behave oddly | These are less tested on Windows. Please [report it](https://github.com/cpoint-eu/kyllene-releases/issues/new?template=bug.yml) with your Windows version and the logs from `%APPDATA%\kyllene\logs`. |
+| Uninstall | Settings › Apps › Kyllene. Hermes in `%LOCALAPPDATA%\hermes` and your data in `%APPDATA%\kyllene` stay; delete those folders yourself only if you want everything gone. |
+
+## Where your data lives
+
+| What | Linux | Windows |
+|---|---|---|
+| Kyllene's settings, layout, logs | `~/.local/share/kyllene` | `%APPDATA%\kyllene` |
+| Kyllene's cache | `~/.cache/kyllene` | `%LOCALAPPDATA%\kyllene` |
+| Hermes Agent (conversations, memory, skills, keys) | `~/.hermes` | `%LOCALAPPDATA%\hermes` |
+| The app itself | `~/.local/bin/Kyllene.AppImage` (or the `.deb` / `.rpm` package) | `C:\Program Files\Kyllene` |
+
+Uninstalling Kyllene never deletes your data or Hermes; your project folders are never touched.

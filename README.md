@@ -230,7 +230,7 @@ cannot work with.
 Kyllene for Windows 10 and 11 (x64) is new and still a beta: it runs the same app, but some parts are less tested
 there (see below).
 
-1. Download **[Kyllene for Windows (.msi)](https://github.com/cpoint-eu/kyllene-releases/releases/latest/download/Kyllene_0.0.4-beta_x64_en-US.msi)**
+1. Download **[Kyllene for Windows](https://github.com/cpoint-eu/kyllene-releases/releases/latest)** (the `.msi` file under Assets)
    (or `Kyllene_<version>_x64_en-US.msi` from the [latest release](https://github.com/cpoint-eu/kyllene-releases/releases/latest)).
 2. Double-click it. Kyllene installs for all users of the PC, so Windows asks for the administrator's OK.
 3. The installer is not code-signed yet, so **SmartScreen** may say *Windows protected your PC*: click **More info** →

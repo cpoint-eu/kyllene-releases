@@ -12,7 +12,9 @@ přidává k němu náladu, komentáře a osobnost. *English version: [Pet](pet.
 [Vlastní okno](#maskot-ve-vlastním-okně) · [Stavy](#co-znamenají-stavy) · [Nálada](#nálada) ·
 [Komentáře](#komentáře-v-bublině) · [Historie hlášek](#historie-hlášek) · [Oslovit jménem](#oslovit-maskota-jménem) ·
 [Osobnost](#osobnost) · [Mozek maskota](#mozek-maskota) · [Opravit animace](#opravit-animace-a-délka-animací) ·
-[Vlastní nálady](#dogenerovat-nálady) · [Dialogy v okně](#dialogy-maskota-ve-vlastním-okně) ·
+[Vlastní nálady](#dogenerovat-nálady) · [Kreslit videem](#kreslit-videem) ·
+[Vygenerované jinde](#animace-a-nálady-vygenerované-jinde) · [Změnit vzhled](#změnit-vzhled) ·
+[Dialogy v okně](#dialogy-maskota-ve-vlastním-okně) ·
 [Jiné počítače](#na-tvých-dalších-počítačích) ·
 [Paleta a zkratky](#příkazy-palety-a-zkratky) · [Když něco nejde](#když-něco-nejde)
 
@@ -30,8 +32,8 @@ ještě nemá*, aktualizuj Hermes (`hermes update`).
 
 **V aplikaci:** v Nastavení › Maskot najdeš dole **Petdex**, veřejnou galerii maskotů. Vyhledej si nějakého a klikni
 na **Adoptovat**. Objeví se mezi **Tvoji maskoti**; tlačítkem **Zobrazit** ho vybereš (vybraný má štítek
-**Zobrazený**). Nabídka **⋯** (**Další akce**) u maskota má **Přejmenovat**, **Osobnost…**, **Opravit animace…** (u
-vylíhnutých maskotů), **Dogenerovat nálady…** a **Odebrat**. Rychle přepneš přes `Ctrl+K` › *Maskot…*: seznam tvých
+**Zobrazený**). Nabídka **⋯** (**Další akce**) u maskota má **Přejmenovat**, **Osobnost…**, **Opravit animace…** a **Změnit
+vzhled…** (u vylíhnutých maskotů), **Dogenerovat nálady…** a **Odebrat**. Rychle přepneš přes `Ctrl+K` › *Maskot…*: seznam tvých
 maskotů s hledáním, `Enter` zobrazí vybraného.
 
 **V terminálu:** jedním příkazem maskota stáhneš a rovnou vybereš, třeba Bobu:
@@ -46,13 +48,19 @@ Další užitečné příkazy: `hermes pets list` (galerie), `hermes pets select
 ## Vylíhnout vlastního maskota s AI
 
 **Vylíhnout nového…** v Nastavení › Maskot (nebo `Ctrl+K` › *Maskot: vylíhnout nového…*) nechá AI nakreslit úplně
-nového maskota:
+nového maskota, nebo ho vylíhne z tvého vlastního obrázku:
 
 1. **Poskytovatel**: vyber **Poskytovatele obrázků** (ty, které má Hermes nastavené a které umí kreslit podle
    referenčního obrázku, třeba *ChatGPT (předplatné)*, *OpenAI (API klíč)*, *OpenRouter*, *Nous Portal*) a kde to
    poskytovatel dovolí, i **Model obrázků**. Dialog předem řekne, co to stojí: placené za obrázek, nebo v rámci
    předplatného. Bez vhodného poskytovatele vypíše, co nastavit.
 2. **Popis**: popiš maskota, třeba *malý zelený drak s brýlemi a hrnkem kávy*, a klikni na **Vygenerovat návrhy**.
+   Máš jeho obrázek? V **Předloha (nepovinná)** ho vyber (**Vybrat obrázek…**), přetáhni tam nebo vlož (`Ctrl+V`):
+   návrhy pak překreslí přesně tuhle postavičku, první návrh je tvoje předloha tak, jak je (zdarma), a do **Poznámky
+   k předloze (nepovinné)** napíšeš, co změnit. **Vylíhnout z vlastního obrázku…** (s vybranou předlohou **Vylíhnout
+   z tohoto obrázku**) návrhy přeskočí: tvůj obrázek bez pozadí se stane vzhledem maskota tak, jak je, a kreslí se jen
+   animace. Potřebuje jednu postavičku na průhledném nebo jednobarevném pozadí (zelená, purpurová nebo bílá), nejvýš
+   16 MB.
 3. **Návrhy** a **Výběr**: AI nakreslí čtyři návrhy. Vyber jeden, dej mu **Jméno maskota** a když chceš, i
    **Povahu** pro jeho [osobnost](#osobnost) (**Vymyslet s AI** navrhne obojí). Když se ti žádný nelíbí, **Nové
    návrhy** nebo **Upravit popis**; pak **Vylíhnout**.
@@ -96,7 +104,9 @@ Na ploše maskot umí víc:
 | Mává | Hotovo, agent dokončil odpověď. |
 | Skáče radostí | Agent splnil celý svůj seznam úkolů, nebo jsi mu poděkoval („díky“, ❤️); nad ním vyletí srdíčka. |
 
-Krátké stavy (mávání, skok, chyba) trvají jen chvilku, pak se maskot vrátí ke klidu nebo k práci.
+Krátké stavy (mávání, skok, chyba) přehrají celou svou animaci jednou, tak dlouho, jak je nastavená její
+[délka](#opravit-animace-a-délka-animací); pak se maskot vrátí ke klidu nebo k práci. Smutný je, když nástroj nebo odpověď
+opravdu selhaly.
 
 ## Nálada
 
@@ -216,14 +226,19 @@ opravit animace…*) ukáže každou animaci zvlášť a znovu nakreslí jen ty,
 2. **Délka**: jak dlouho se tahle animace přehrává. Platí hned a zdarma; nová verze podle ní dostane i počet snímků.
 3. **Nakreslit novou verzi**: napiš **Co má vypadat jinak (nepovinné)** a klikni na **Nakreslit novou verzi**. Počet
    snímků a cena jsou vidět vedle tlačítka; **Kreslí … · změnit** vybere **Poskytovatele obrázků** a **Model
-   obrázků** jako při líhnutí. Kreslí se vždy jedna animace; ostatní počkají, až bude hotová.
+   obrázků** jako při líhnutí; **Kreslit** › **Video** ji místo toho nakreslí [videem](#kreslit-videem). Kreslí se
+   vždy jedna animace; ostatní počkají, až bude hotová. Část **Vygenerovat jinde** pod tím ji nechá zdarma
+   [nakreslit v jiném nástroji](#animace-a-nálady-vygenerované-jinde).
 4. Porovnej **Teď** a **Nová** a zvol **Použít novou** (maskot ji začne hned hrát) nebo **Zahodit**. **Nakreslit
    znovu** zkusí ještě jednou. Animace s novou verzí mají v seznamu štítek *nová*.
 5. **Použít a zavřít** uloží všechny nové verze, které jsi nezahodil; **Zavřít (kreslí se dál)** nechá rozjeté kreslení
-   doběhnout. **Vrátit původní** zahodí delší verzi a **Vrátit předchozí podobu** vrátí poslední opravu.
+   doběhnout. **Vrátit původní** zahodí delší verzi a **Vrátit předchozí podobu** vrátí poslední opravu. Než se nové
+   animace uloží, hraje maskot dál ty současné.
 
-Delší animace dostane dost snímků na svou délku (zhruba jeden na 0,3 s, nejvýš 28) a kreslí se na několik obrázků
-(zhruba jeden na šest snímků), všechny v jedné velikosti, takže maskot během ní neroste ani se nezmenšuje.
+Kreslená obrázky dostane delší animace dost snímků na svou délku (zhruba jeden na 0,3 s, nejvýš 28) a kreslí se na
+několik obrázků (zhruba jeden na šest snímků), všechny v jedné velikosti, takže maskot během ní neroste ani se
+nezmenšuje. Nakreslená videem nebo vygenerovaná jinde se přehrává plynule, 12 snímků za každou vteřinu délky (nejvýš
+96 snímků).
 
 ## Dogenerovat nálady
 
@@ -238,12 +253,59 @@ každého maskota, i u toho z Petdexu. Dialog funguje stejně jako [Opravit anim
    dostane počet snímků.
 3. **Nakreslit novou verzi**: napiš **Co má vypadat jinak (nepovinné)** (nejvýš 500 znaků, počítadlo ukazuje délku) a klikni
    na **Nakreslit novou verzi**. Počet snímků a cena jsou vidět vedle tlačítka (placené, jeden obrázek na náladu);
-   **Kreslí … · změnit** vybere poskytovatele a model obrázků. Kreslí se vždy jedna nálada; ostatní počkají.
+   **Kreslí … · změnit** vybere poskytovatele a model obrázků, **Kreslit** › **Video** ji nakreslí
+   [videem](#kreslit-videem). Kreslí se vždy jedna nálada; ostatní počkají. Část **Vygenerovat jinde** pod tím ji
+   nechá zdarma [nakreslit v jiném nástroji](#animace-a-nálady-vygenerované-jinde).
 4. Porovnej **Teď** a **Nová** a zvol **Použít novou** (maskot ji začne hned hrát) nebo **Zahodit**. **Nakreslit
    znovu** zkusí ještě jednou. Dokud nezvolíš **Použít novou**, na maskotovi se nic nezmění.
 5. **Použít a zavřít** uloží všechny nové verze, které jsi nezahodil. Když dialog zavíráš s nerozhodnutými novými
    verzemi, zeptá se *Zahodit 2 nové nálady?*: **Použít** je uloží, **Zahodit** je zahodí, **Zpět** vrátí do dialogu.
 6. **Vrátit původní** u nálady s vlastní animací ji zahodí: nálada se vrátí k úpravě zdarma (zdarma).
+
+## Kreslit videem
+
+**Opravit animace** a **Dogenerovat nálady** umí kreslit videomodelem místo obrázků. Když má Hermes nastavený
+generátor videa, který rozpohybuje obrázek (image-to-video), a je nainstalovaný `ffmpeg`, ukážou oba dialogy volbu
+**Kreslit**: **Obrázky** / **Video** (pak je předvybrané **Video**).
+
+- **Video** udělá z předlohy maskota jeden klip a rozstříhá ho na snímky: plynulejší pohyb a stálejší vzhled než u
+  obrázků, ale stojí víc a trvá pár minut. Odhad ceny vidíš před kreslením (*Placené · model · vteřiny videa · asi
+  …*), skutečnou cenu pod novou verzí.
+- Animace se přehrává 12 snímků za každou vteřinu své délky (nejvýš 96 snímků); kratší délka přehraje celý klip
+  rychleji.
+- **Znovu z uloženého videa** rozstříhá poslední klip té animace znovu podle nastavené délky, zdarma.
+- Bez `ffmpeg` to dialog řekne: nainstaluj ho (Linux: balíček `ffmpeg`; Windows: ffmpeg.org a pak ho přidej do PATH).
+
+## Animace a nálady vygenerované jinde
+
+Raději jiný nástroj (třeba chat s obrázkovým nebo videomodelem)? Každá animace v **Opravit animace** a každá nálada
+v **Dogenerovat nálady** má část **Vygenerovat jinde**. Je zdarma a funguje, i když není nastavený žádný poskytovatel
+obrázků:
+
+1. **Uložit obrázek…** uloží vzhled maskota, **Kopírovat prompt** zkopíruje přesný prompt pro tuhle animaci a
+   **Kopírovat prompt pro video** ten pro videonástroj (image-to-video z předlohy). **Prompt a parametry** je ukáže i s
+   rozložením, pozadím, velikostí a názvem souboru.
+2. Nakresli ji tam a výsledek nahraj zpět přes **Nahrát soubor…**, nebo soubor přetáhni na animaci. Kyllene vezme pás
+   PNG/JPG/WebP, několik pásů, jednotlivé snímky PNG, GIF nebo video MP4/WebM (video potřebuje `ffmpeg`; nejvýš
+   200 MB).
+3. Výsledek se ukáže jako **Nová**: porovnej ho s **Teď** a zvol **Použít novou** nebo **Zahodit**. Když má soubor
+   jiný počet snímků, než čeká délka, přehraje se tak, jak je, a **Nastavit délku na …** srovná délku podle souboru.
+
+GIFy, videa a jednotlivé snímky se přehrávají plynule, 12 snímků za každou vteřinu délky (nejvýš 96 snímků).
+
+**Vygenerovat jinde – všechny animace** (v Dogenerovat nálady **Vygenerovat jinde – všechny nálady**) nahoře v dialogu
+dá jeden obrázek vzhledu a prompty všech animací (**Kopírovat vše**). **Nahrát soubory…** nebo **Nahrát složku…** je
+vrátí, každý soubor k animaci podle svého názvu, a pak **Použít všechny n nové**. Paleta otevře tenhle pohled rovnou:
+*Maskot: animace vygenerované jinde (export / import)…* (u vylíhnutých maskotů) a *Maskot: nálady vygenerované jinde
+(export / import)…* (u každého maskota).
+
+## Změnit vzhled
+
+**Změnit vzhled…** (nabídka **⋯** u vylíhnutého maskota, pravé tlačítko na maskotovi nebo `Ctrl+K` › *Maskot: změnit
+vzhled…*) dá maskotovi nový vzhled z obrázku: vyber ho, přetáhni nebo vlož (`Ctrl+V`). Pozadí se odstraní, **Teď** a
+**Nový** se ukážou vedle sebe a **Použít jako vzhled** ho uloží. Nic se nekreslí ani neplatí. Každá nová animace se
+pak kreslí z nového vzhledu, ale stávající mají starý vzhled, dokud je nepřekreslíš: dialog k tomu nabídne **Opravit
+animace** a **Dogenerovat nálady**.
 
 ## Dialogy maskota ve vlastním okně
 
@@ -264,7 +326,7 @@ Víc o dialozích v okně: [Everything in Kyllene](features.md#dialogs-in-their-
 
 Se zapnutou [synchronizací](sync.md) tě zobrazený maskot i jeho velikost následují: maskot z Petdexu se na druhém
 počítači nainstaluje sám, vylíhnutý přijde i se svými obrázky, takže ho nikdy nelíhneš (a neplatíš) dvakrát. S ním
-cestuje i jeho osobnost, mozek, paměť, dovednosti, vlastní nálady a délky animací. Jestli je maskot zobrazený, kde
+cestuje i jeho osobnost, mozek, paměť, dovednosti, vzhled, vlastní nálady a délky animací. Jestli je maskot zobrazený, kde
 na obrazovce sedí a jeho aktuální nálada zůstávají na každém počítači zvlášť.
 
 ## Příkazy palety a zkratky
@@ -272,8 +334,9 @@ na obrazovce sedí a jeho aktuální nálada zůstávají na každém počítač
 `Ctrl+K` nabízí *Maskot…*, *Maskot: zapnout* / *Maskot: vypnout*, *Maskot: do vlastního okna* / *Maskot: zpět do
 okna aplikace*, *Maskot: toulat se po okně* / *Maskot: přestat se toulat*, *Maskot: historie hlášek…*, *Maskot:
 vylíhnout nového…* / *Maskot: vylíhnout nového v novém okně…*, *Maskot: opravit animace…* / *Maskot: opravit animace
-v novém okně…* (u vylíhnutých maskotů) a *Maskot: dogenerovat nálady…* / *Maskot: dogenerovat nálady v novém okně…*.
-Nastavení › Klávesové zkratky má skupinu **Maskot**: výběru maskota, zapnutí / vypnutí, vlastnímu oknu, líhnutí (i ve
+v novém okně…* (u vylíhnutých maskotů) a *Maskot: dogenerovat nálady…* / *Maskot: dogenerovat nálady v novém okně…*, k tomu *Maskot: změnit vzhled…* a *Maskot:
+animace vygenerované jinde (export / import)…* (u vylíhnutých maskotů) a *Maskot: nálady vygenerované jinde (export /
+import)…*. Nastavení › Klávesové zkratky má skupinu **Maskot**: výběru maskota, zapnutí / vypnutí, vlastnímu oknu, líhnutí (i ve
 vlastním okně) a historii hlášek dáš vlastní klávesu (**Nastavit**); jsou tam vypsané i akce myší (Shift+klik, klik,
 dvojklik, Alt + kolečko).
 
@@ -286,4 +349,6 @@ dvojklik, Alt + kolečko).
 | Maskot nic neříká | V Nastavení › Maskot › **Komentáře** je **Režim** **Vypnuto**, nebo žádný agent nepracuje (když nic neběží, mlčí). |
 | AI hlášky zní jako předpřipravené | Model hlášek není na tomhle počítači připojený, nebo volání selhalo; místo něj se ukáže předpřipravená hláška. |
 | Líhnutí nejde spustit | V Hermesu není nastavený poskytovatel obrázků, který umí kreslit podle referenčního obrázku; dialog vypíše, co nastavit (třeba klíč OpenRouteru v Hermes › Klíče). |
+| Chybí **Kreslit** › **Video** | Hermes nemá generátor videa, který rozpohybuje obrázek, nebo není nainstalovaný `ffmpeg` (dialog to řekne). |
+| Nahraný soubor se odmítne | Zpráva řekne proč: pózy musí stát vedle sebe na jednobarevném nebo průhledném pozadí, GIF nebo video se nahrává samo a u více souborů musí každý název odpovídat jednomu z vypsaných v **Prompt a parametry**. |
 | Okno maskota na ploše si nepamatuje místo | Na čistém Waylandu (bez XWaylandu) si okno polohu neumí nastavit samo. |

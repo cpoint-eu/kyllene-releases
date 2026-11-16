@@ -12,7 +12,9 @@ mood, the comments and the personality on top. *Česky: [Maskot](pet.cs.md).*
 [States](#what-the-pets-states-mean) · [Mood](#mood) · [Comments](#comments-in-a-speech-bubble) ·
 [Line history](#line-history) · [Talk to it](#talk-to-the-pet-by-name) ·
 [Personality](#personality) · [Pet brain](#pet-brain) · [Repair animations](#repair-animations-and-animation-length) ·
-[Own moods](#generate-moods) · [Dialogs in a window](#pet-dialogs-in-their-own-window) ·
+[Own moods](#generate-moods) · [Draw with video](#draw-with-video) ·
+[Made elsewhere](#animations-and-moods-made-elsewhere) · [Change look](#change-the-look) ·
+[Dialogs in a window](#pet-dialogs-in-their-own-window) ·
 [Other computers](#on-your-other-computers) · [Palette and shortcuts](#palette-commands-and-shortcuts) ·
 [Troubleshooting](#troubleshooting)
 
@@ -30,8 +32,8 @@ update Hermes (`hermes update`).
 
 **In the app:** Settings › Pet has the **Petdex** at the bottom, a public gallery of pets. Search for one and click
 **Adopt**. It shows up under **Your pets**; **Show** makes it the one you see (it then says **Shown**). Its **⋯** menu
-(**More**) has **Rename**, **Personality…**, **Repair animations…** (pets you hatched), **Generate moods…** and
-**Remove**. To switch quickly, `Ctrl+K` › *Pet…* lists your pets with search; `Enter` shows the one you pick.
+(**More**) has **Rename**, **Personality…**, **Repair animations…** and **Change look…** (pets you hatched),
+**Generate moods…** and **Remove**. To switch quickly, `Ctrl+K` › *Pet…* lists your pets with search; `Enter` shows the one you pick.
 
 **In a terminal:** one command downloads a pet and picks it, for example Boba:
 
@@ -44,14 +46,19 @@ off). Kyllene notices the change by itself, no restart needed.
 
 ## Hatch your own pet with AI
 
-**Hatch a new one…** in Settings › Pet (or `Ctrl+K` › *Pet: hatch a new one…*) lets AI draw a brand-new pet:
+**Hatch a new one…** in Settings › Pet (or `Ctrl+K` › *Pet: hatch a new one…*) lets AI draw a brand-new pet, or hatches one from your own picture:
 
 1. **Provider**: pick the **Image provider** (the ones Hermes has set up that can draw from a reference image, for
    example *ChatGPT (subscription)*, *OpenAI (API key)*, *OpenRouter*, *Nous Portal*) and, where the provider lets you,
    the **Image model**. The dialog says up front what it costs: paid per image, or counted against your
    subscription. Without a suitable provider it lists what to set up first.
 2. **Description**: describe the pet, for example *a small green dragon with glasses and a cup of coffee*, then
-   **Generate drafts**.
+   **Generate drafts**. Have a picture of it? Under **Picture (optional)** pick it (**Choose a picture…**), drop it
+   there or paste it (`Ctrl+V`): the drafts then redraw that exact character, the first draft is your picture as it
+   is (free), and **Notes for the picture (optional)** says what to change.
+   **Hatch from my picture…** (**Hatch from this picture** once one is chosen) skips the drafts: your picture, its
+   background removed, becomes the pet's look as it is, and only the animations are drawn. It needs one character
+   on a transparent or one-colour background (green, magenta or white), at most 16 MB.
 3. **Drafts** and **Pick**: AI draws four drafts. Pick one, give it a **Pet name** and, if you like, a **Nature**
    for its [personality](#personality) (**Invent with AI** suggests both). **New drafts** or **Edit description** when
    none fits, then **Hatch**.
@@ -96,7 +103,9 @@ On the desktop the pet does more:
 | Waves | Done, the agent finished its answer. |
 | Jumps for joy | The agent finished its whole to-do list, or you thanked it ("thanks", ❤️); hearts float up over it. |
 
-The short ones (wave, jump, failure) last a moment; then the pet goes back to rest or to work.
+The short ones (wave, jump, failure) play their whole animation once, as long as its
+[length](#repair-animations-and-animation-length) is set; then the pet goes back to rest or to work. The sad one plays
+when a tool or the answer really failed.
 
 ## Mood
 
@@ -216,14 +225,18 @@ animations…*) shows each animation on its own and redraws only the ones that l
    frames from it.
 3. **Draw a new version**: write **What should look different (optional)** and click **Draw a new version**. The
    frame count and the cost are shown next to the button; **Drawn by … · change** picks the **Image provider** and
-   **Image model** as when hatching. One animation is drawn at a time; the others wait until it is done.
+   **Image model** as when hatching; **Draw with** › **Video** draws it [with video](#draw-with-video) instead. One
+   animation is drawn at a time; the others wait until it is done. **Make elsewhere** below it lets you
+   [draw it in another tool](#animations-and-moods-made-elsewhere) for free.
 4. Compare **Now** and **New**, then **Use the new one** (the pet plays it at once) or **Discard**. **Draw again**
    tries once more. Animations with a new version are marked *new* in the list.
 5. **Apply and close** saves every new version you did not discard; **Close (keeps drawing)** lets a running drawing
    finish. **Back to the original** drops a longer version, and **Restore previous look** undoes the last repair.
+   While the new animations are being saved, the pet keeps playing its current ones.
 
-A longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn in several images
-(about one per six frames), all at one size, so the pet does not grow or shrink while it plays.
+Drawn with images, a longer animation gets enough frames for its length (about one per 0.3 s, up to 28) and is drawn
+in several images (about one per six frames), all at one size, so the pet does not grow or shrink while it plays. Drawn
+with video or made elsewhere, it plays smooth at 12 frames per second of its length (up to 96 frames).
 
 ## Generate moods
 
@@ -238,13 +251,62 @@ works for any pet, also one from the Petdex. The dialog works like [Repair anima
    version gets its number of frames from it.
 3. **Draw a new version**: write **What should look different (optional)** (up to 500 characters, the counter shows the length) and click
    **Draw a new version**. The frame count and the cost are shown next to the button (paid, one image per mood);
-   **Drawn by … · change** picks the image provider and model. One mood is drawn at a time; the others wait.
+   **Drawn by … · change** picks the image provider and model, **Draw with** › **Video** draws it
+   [with video](#draw-with-video). One mood is drawn at a time; the others wait. **Make elsewhere** below it lets you
+   [draw it in another tool](#animations-and-moods-made-elsewhere) for free.
 4. Compare **Now** and **New**, then **Use the new one** (the pet plays it at once) or **Discard**. **Draw again**
    tries once more. Nothing changes on the pet before you pick **Use the new one**.
 5. **Apply and close** saves every new version you did not discard. Closing the dialog with undecided new versions
    asks *Discard 2 new moods?*: **Use** saves them, **Discard** drops them, **Back** returns to the dialog.
 6. **Back to the original** on a mood with its own animation drops it: the mood goes back to the free adjustment
    (free).
+
+## Draw with video
+
+**Repair animations** and **Generate moods** can draw with a video model instead of images. When Hermes has a video
+generator set up that animates a picture (image-to-video) and `ffmpeg` is installed, both dialogs show **Draw with**:
+**Images** / **Video** (then **Video** is picked first).
+
+- **Video** makes one clip from the pet's look and cuts it into frames: smoother motion and a steadier look than
+  images, but it costs more and takes a few minutes. The price estimate shows before you draw (*Paid · model ·
+  seconds of video · about …*), what it really cost under the new version.
+- The animation plays at 12 frames per second of its length (up to 96 frames); a shorter length plays the whole clip
+  faster.
+- **Again from the saved video** cuts the last clip of that animation again with the current length, for free.
+- Without `ffmpeg` the dialog says so: install it (Linux: the `ffmpeg` package; Windows: ffmpeg.org, then add it to
+  PATH).
+
+## Animations and moods made elsewhere
+
+Prefer another tool (a chat with an image or video model, say)? Every animation in **Repair animations** and every
+mood in **Generate moods** has a **Make elsewhere** part. It is free, and it works even when no image provider is set
+up:
+
+1. **Save picture…** saves the pet's look, **Copy prompt** copies the exact prompt for this animation and **Copy video
+   prompt** the one for a video tool (image-to-video from the look). **Prompt and parameters** shows them with the
+   layout, background, size and file name.
+2. Draw it there and bring the result back with **Upload file…**, or drop the file onto the animation. Kyllene takes a
+   PNG/JPG/WebP strip, several strips, single PNG frames, a GIF or an MP4/WebM video (a video needs `ffmpeg`; at most
+   200 MB).
+3. The result shows as **New**: compare it with **Now**, then **Use the new one** or **Discard**. When the file has
+   another number of frames than the length expects, it plays as it is, and **Set length to …** makes the length
+   follow the file.
+
+GIFs, videos and single frames play smooth at 12 frames per second of their length (up to 96 frames).
+
+**Make elsewhere – all animations** (in Generate moods **Make elsewhere – all moods**) at the top of the dialog gives
+one look picture and the prompts of every animation (**Copy all**). **Upload files…** or **Upload folder…** brings
+them back, each file to the animation its name says, then **Use all n new**. The palette opens this view directly:
+*Pet: animations made elsewhere (export / import)…* (hatched pets) and *Pet: moods made elsewhere (export / import)…*
+(any pet).
+
+## Change the look
+
+**Change look…** (a hatched pet's **⋯** menu, a right-click on the pet, or `Ctrl+K` › *Pet: change look…*) gives the
+pet a new look from a picture: choose it, drop it or paste it (`Ctrl+V`). Its background is removed, **Now** and
+**New** show side by side, and **Use as the look** saves it. Nothing is drawn or paid. Every new animation is then
+drawn from the new look, but the existing ones keep the old look until you redraw them: the dialog offers **Repair
+animations** and **Generate moods** for that.
 
 ## Pet dialogs in their own window
 
@@ -265,7 +327,7 @@ More about dialog windows: [Everything in Kyllene](features.md#dialogs-in-their-
 
 With [sync](sync.md) on, the shown pet and its size follow you: a Petdex pet installs itself on the other computer, a
 hatched one travels with its drawings, so you never hatch (and pay) twice. Its personality, brain, memory, skills,
-own moods and animation lengths travel with it. Whether the pet is shown, where it sits on the screen and its current
+look, own moods and animation lengths travel with it. Whether the pet is shown, where it sits on the screen and its current
 mood stay on each computer.
 
 ## Palette commands and shortcuts
@@ -273,7 +335,8 @@ mood stay on each computer.
 `Ctrl+K` offers *Pet…*, *Pet: show* / *Pet: hide*, *Pet: into its own window* / *Pet: back into the app window*,
 *Pet: wander the window* / *Pet: stop wandering*, *Pet: line history…*, *Pet: hatch a new one…* / *Pet: hatch a new
 one in a new window…*, *Pet: repair animations…* / *Pet: repair animations in a new window…* (hatched pets) and
-*Pet: generate moods…* / *Pet: generate moods in a new window…*. Settings › Shortcuts has a **Pet** group: give
+*Pet: generate moods…* / *Pet: generate moods in a new window…*, plus *Pet: change look…* and *Pet: animations made
+elsewhere (export / import)…* (hatched pets) and *Pet: moods made elsewhere (export / import)…*. Settings › Shortcuts has a **Pet** group: give
 choosing the pet, show / hide, its own window, hatching (also in its own window) and the line history a key of your
 own (**Set**); the mouse actions (Shift+click, click, double-click, Alt + wheel) are listed there too.
 
@@ -286,4 +349,6 @@ own (**Set**); the mouse actions (Shift+click, click, double-click, Alt + wheel)
 | The pet says nothing | Settings › Pet › **Comments** › **Mode** is **Off**, or no agent is working (with nothing running it stays quiet). |
 | AI lines sound like prepared ones | The model of the lines is not connected on this computer, or the call failed; a prepared line is shown instead. |
 | Hatching cannot start | No image provider that can draw from a reference image is set up in Hermes; the dialog lists what to set up (for example an OpenRouter key in Hermes › Keys). |
+| **Draw with** › **Video** is missing | Hermes has no video generator that animates a picture, or `ffmpeg` is not installed (the dialog says so). |
+| An uploaded file is refused | The message says why: the poses must stand side by side on a flat or transparent background, a GIF or video goes on its own, and with several files each name must match one listed under **Prompt and parameters**. |
 | The pet's desktop window forgets its spot | On pure Wayland (no XWayland) a window cannot place itself. |

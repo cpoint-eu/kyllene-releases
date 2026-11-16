@@ -58,9 +58,9 @@ the CLI and TUI show the same.
 | Option | What it does |
 |---|---|
 | **Show the pet**, **Size** | Turn the pet on or off (also in the terminal) and set its size. |
-| **Hatch a new one…** | AI draws a new pet from your description (paid image generation; the cost is shown first). |
+| **Hatch a new one…** | AI draws a new pet from your description or your own picture (paid image generation; the cost is shown first). |
 | **Let the pet wander the window** | Off by default. The pet strolls along free spots while the agent is at rest. |
-| **Your pets** | Your installed pets: **Show**, and **⋯** › **Rename**, **Personality…**, **Repair animations…** (hatched pets), **Generate moods…**, **Remove**. Under the shown pet: its current **Mood** and **Animation length** (1–8 s per animation, free). |
+| **Your pets** | Your installed pets: **Show**, and **⋯** › **Rename**, **Personality…**, **Repair animations…** and **Change look…** (hatched pets), **Generate moods…**, **Remove**. Under the shown pet: its current **Mood** and **Animation length** (1–8 s per animation, free). |
 | **Pet brain** | **No memory** (default), **Memory**, **Agent** or **Combination**: how much the pet remembers and can do; with Memory its memory note, **What it knows about the user** (off by default) and **Skills**. With its own agent (Agent, Combination) **Memory** and **What it knows about you** are the agent's own notes and the skills are copied into the agent ([Pet › Pet brain](pet.md#pet-brain)). |
 | **Comments** | The speech bubble: **Mode** (**Off** / **Prepared lines**, default / **AI lines**), **Model of the lines**, **Longest silence** (default 5 min), **Language**, **Comment on my messages too** (off by default). |
 | **Petdex** | The public gallery: search and **Adopt**. |

@@ -95,7 +95,7 @@ The highlights below; every feature with where to find it: **[Everything in Kyll
 ### A pet that keeps an eye on the agent
 
 - An animated **pet** in the corner shows what the agent is doing: working, thinking, waiting for you, done or failed. One glance, no reading.
-- Pick one from the public **Petdex** gallery, or **hatch your own** with AI from a description (with your image provider; the cost is shown first). Repair single animations or **generate moods**: pick a mood, say what should look different, compare *Now* and *New*, and nothing changes before you click *Use the new one*.
+- Pick one from the public **Petdex** gallery, or **hatch your own** with AI from a description or straight from your own picture (with your image provider; the cost is shown first). Repair single animations or **generate moods**, drawn with images or with your video generator (smooth, 12 frames per second), or made in any other tool from the exact prompt and uploaded back: pick a mood, say what should look different, compare *Now* and *New*, and nothing changes before you click *Use the new one*.
 - It has a **mood** that follows how the work goes, **comments** in a speech bubble you can drag anywhere (free prepared lines or AI lines) with a **line history** of what each line reacted to, a personality, and answers when you **talk to it by name**. Give it a memory and skills, or make it a full Hermes agent that shares one memory, skills and personality with the pet.
 - **Shift+click** pops it out onto the desktop: it tells you when an agent needs you, leaves a letter for answers that finished while you were away, and a click sends a message to your last conversation.
 - With sync on it follows you to your other computers. More: **[Pet](docs/pet.md)**.
